@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    width: 8rem;
+    height: 2.2rem;
+    margin: 0.3rem;
+    font-size: 1.3rem;
+
+    &:nth-child(1) {
+        background: #ff9994;
+    }
+    &:nth-child(2) {
+        background: #ffffa1;
+    }
+    &:nth-child(3) {
+        background: #a6f1a6;
+    }
+    &:nth-child(4) {
+        background: #add8e6;
+    }
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
