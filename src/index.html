@@ -8,21 +8,36 @@
     </head>
     <body>
         <h1 id="title"></h1>
-        <div class="center">
-            <button id="btn1" type="button" class="button">1</button>
-            <button id="btn2" type="button" class="button">2</button>
-            <button id="btn3" type="button" class="button">3</button>
-            <button id="btn4" type="button" class="button">4</button>
+        <div class="fullscreen">
+            <div class="center">
+                <button id="btn1" type="button" class="button">1</button>
+                <button id="btn2" type="button" class="button">2</button>
+                <button id="btn3" type="button" class="button">3</button>
+                <button id="btn4" type="button" class="button">4</button>
+            </div>
         </div>
-        <div class="container">
-            <p id="eventListenerInfo"></p>
-            <br />
-            <button id="newEventListenerBtn" type="button" class="button">
-                New Event Listener
-            </button>
-            <button id="deleteEventListenerBtn" type="button" class="button">
-                Delete Event Listener
-            </button>
+        <div class="leftsidebar">
+            <div class="center smallContainer">
+                <p id="eventListenerInfo"></p>
+                <br />
+                <button id="newEventListenerBtn" type="button" class="button">
+                    New Event Listener
+                </button>
+                <button
+                    id="deleteEventListenerBtn"
+                    type="button"
+                    class="button"
+                >
+                    Delete Event Listener
+                </button>
+            </div>
+            <div class="center smallContainer">
+                <p id="messages"></p>
+                <br />
+                <button id="clearMessagesBtn" type="button" class="button">
+                    Clear Message History
+                </button>
+            </div>
         </div>
     </body>
 </html>

@@ -32,7 +32,9 @@ document
 
         if (document.getElementById(el) && string) {
             createEventListener(el, function() {
-                console.log(string);
+                document.getElementById(
+                    'messages',
+                ).innerHTML += `${string}<br>`;
             });
         }
         updateEventListenerInfo();
@@ -57,6 +59,12 @@ function updateEventListenerInfo() {
         eventListenerStorage,
     ).replace(/},{/g, '}<br>{');
 }
+
+document
+    .getElementById('clearMessagesBtn')
+    .addEventListener('click', function() {
+        document.getElementById('messages').innerHTML = '';
+    });
 
 function randomInt(min, max) {
     // min and max included

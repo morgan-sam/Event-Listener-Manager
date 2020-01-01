@@ -17,28 +17,39 @@ button {
     background: #add8e6; }
 
 .center {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; }
 
-.container {
+.smallContainer {
+  padding: 1rem;
+  border: #ccc dotted 2px;
+  width: 25rem; }
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh; }
+
+.leftsidebar {
   position: absolute;
   top: 0;
   left: 0;
+  padding: 3rem;
   height: auto;
   width: auto;
-  padding: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; }
-  .container button {
+  .leftsidebar > * {
+    margin: 1rem; }
+  .leftsidebar button {
     background: #d8bfd8;
     width: 10rem;
     font-size: 1rem; }
