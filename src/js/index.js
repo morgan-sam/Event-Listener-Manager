@@ -3,7 +3,7 @@ import * as intervals from './intervals.js';
 
 let eventListenerStorage = [];
 
-function createEventListener(elementID, elFunc, eventListenerID) {
+function createEventListener(elementID, elFunc) {
     if (true) {
         let randID = Math.random()
             .toString(36)
@@ -15,8 +15,12 @@ function createEventListener(elementID, elFunc, eventListenerID) {
         });
         let el = document.getElementById(elementID);
         el.addEventListener('click', elFunc);
-        el.deleteEventListener = function deleteEventListener() {
-            el.removeEventListener('click', elFunc);
+        el.deleteEventListener = function deleteEventListener(deleteEL) {
+            el.removeEventListener('click', deleteEL.elFunc);
+            eventListenerStorage = eventListenerStorage.filter(
+                obj => obj.eventListenerID != deleteEL.eventListenerID,
+            );
+            updateEventListenerInfo();
         };
     }
 }
@@ -46,10 +50,17 @@ document
         let number = prompt(
             'Enter a number of button to delete event listener from:',
         );
-        let el = document.getElementById('btn' + number);
-
-        if (el) {
-            el.deleteEventListener();
+        let hashkey = prompt('Enter the eventListenerID:');
+        let element = 'btn' + number;
+        let elementELs = eventListenerStorage.filter(
+            el => el.elementID === element,
+        );
+        let selectedEL = elementELs.filter(
+            el => el.eventListenerID === hashkey,
+        )[0];
+        if (selectedEL) {
+            let el = document.getElementById(element);
+            el.deleteEventListener(selectedEL);
         }
         updateEventListenerInfo();
     });
