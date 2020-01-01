@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"* {\\n  margin: 0;\\n  padding: 0; }\\n\\nhtml {\\n  background-color: red; }\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/main.css?./node_modules/css-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"* {\\n  margin: 0;\\n  padding: 0; }\\n\\nbutton {\\n  width: 8rem;\\n  height: 2.2rem;\\n  margin: 0.3rem;\\n  font-size: 1.3rem; }\\n  button:nth-child(1) {\\n    background: #ff9994; }\\n  button:nth-child(2) {\\n    background: #ffffa1; }\\n  button:nth-child(3) {\\n    background: #a6f1a6; }\\n  button:nth-child(4) {\\n    background: #add8e6; }\\n\\n.container {\\n  position: absolute;\\n  top: 0;\\n  left: 0;\\n  height: 100vh;\\n  width: 100vw;\\n  display: flex;\\n  flex-direction: column;\\n  align-items: center;\\n  justify-content: center; }\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/main.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -140,7 +140,19 @@ eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/run
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_main_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_main_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _intervals_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./intervals.js */ \"./src/js/intervals.js\");\n\n\n\n_intervals_js__WEBPACK_IMPORTED_MODULE_1__[\"createInterval\"](\n    function() {\n        let button = document.getElementById('btn' + randomInt(1, 4));\n        button.style.backgroundColor =\n            '#' + ((Math.random() * 0xffffff) << 0).toString(16);\n    },\n    'btnInterval',\n    500,\n);\n\nfunction createEventListener(button) {\n    console.log('HELLO');\n}\n\nlet button = document.getElementById('btn1');\n\nbutton.createEventListener = createEventListener(button);\n\nfunction deleteEventListener() {\n    //\n}\n\n[...document.querySelectorAll('.button')].forEach(function(button) {\n    button.addEventListener(\n        'click',\n        () =>\n            (function() {\n                _intervals_js__WEBPACK_IMPORTED_MODULE_1__[\"clearIntervals\"]('btnInterval');\n                [...document.querySelectorAll('.button')].forEach(function(\n                    button,\n                ) {\n                    button.removeAttribute('style');\n                });\n            })(),\n        false,\n    );\n});\n\nfunction randomInt(min, max) {\n    // min and max included\n    return Math.floor(Math.random() * (max - min + 1) + min);\n}\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/intervals.js":
+/*!*****************************!*\
+  !*** ./src/js/intervals.js ***!
+  \*****************************/
+/*! exports provided: createInterval, clearIntervals */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createInterval\", function() { return createInterval; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"clearIntervals\", function() { return clearIntervals; });\nclass IntervalObj {\n    constructor(intervalID, type, active) {\n        this.intervalID = intervalID;\n        this.type = type;\n        this.active = active;\n    }\n}\n\nlet intervalStorage = [];\n\nconst createInterval = (funcToPass, typeOfInterval, tickTime) => {\n    const foundInt = intervalStorage.some(\n        el => el.active === true && el.type === typeOfInterval,\n    );\n    foundInt\n        ? null\n        : intervalStorage.push(\n              new IntervalObj(\n                  setInterval(funcToPass, tickTime),\n                  typeOfInterval,\n                  true,\n              ),\n          );\n};\n\nconst clearIntervals = typeOfInterval => {\n    for (var i = 0; i < intervalStorage.length; i++) {\n        if (intervalStorage[i].type == typeOfInterval) {\n            clearInterval(intervalStorage[i].intervalID);\n            intervalStorage[i].active = false;\n        }\n    }\n};\n\n\n//# sourceURL=webpack:///./src/js/intervals.js?");
 
 /***/ })
 

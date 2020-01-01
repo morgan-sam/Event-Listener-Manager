@@ -16,7 +16,7 @@ button {
   button:nth-child(4) {
     background: #add8e6; }
 
-.container {
+.center {
   position: absolute;
   top: 0;
   left: 0;
@@ -26,3 +26,19 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center; }
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .container button {
+    background: #d8bfd8;
+    width: 10rem;
+    font-size: 1rem; }
