@@ -15,10 +15,11 @@ function createEventListener(elementID, elFunc) {
         });
         let el = document.getElementById(elementID);
         el.addEventListener('click', elFunc);
-        el.deleteEventListener = function deleteEventListener(deleteEL) {
+        el.deleteEventListener = function deleteEventListener(delete_EL_ID) {
+            let deleteEL = getEventListenerByHash(elementID, delete_EL_ID);
             el.removeEventListener('click', deleteEL.elFunc);
             eventListenerStorage = eventListenerStorage.filter(
-                obj => obj.eventListenerID != deleteEL.eventListenerID,
+                obj => obj.eventListenerID !== deleteEL.eventListenerID,
             );
             updateEventListenerInfo();
         };
@@ -52,18 +53,28 @@ document
         );
         let hashkey = prompt('Enter the eventListenerID:');
         let element = 'btn' + number;
-        let elementELs = eventListenerStorage.filter(
-            el => el.elementID === element,
-        );
-        let selectedEL = elementELs.filter(
-            el => el.eventListenerID === hashkey,
-        )[0];
-        if (selectedEL) {
-            let el = document.getElementById(element);
-            el.deleteEventListener(selectedEL);
+        let elementObj = document.getElementById(element);
+        if (elementObj) {
+            try {
+                let selected_EL_ID = getEventListenerByHash(element, hashkey)
+                    .eventListenerID;
+                elementObj.deleteEventListener(selected_EL_ID);
+            } catch (e) {
+                console.log(`No event listener with hash: ${hashkey}`);
+            }
         }
         updateEventListenerInfo();
     });
+
+function getEventListenerByHash(element, hashkey) {
+    return getElementEventListeners(element).filter(
+        el => el.eventListenerID === hashkey,
+    )[0];
+}
+
+function getElementEventListeners(element) {
+    return eventListenerStorage.filter(el => el.elementID === element);
+}
 
 function updateEventListenerInfo() {
     document.getElementById('eventListenerInfo').innerHTML = JSON.stringify(
