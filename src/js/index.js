@@ -78,6 +78,24 @@ document
         updateEventListenerInfo();
     });
 
+document
+    .getElementById('deleteAllEventListenersBtn')
+    .addEventListener('click', function() {
+        let number = prompt(
+            'Enter a number of button to delete all event listeners from:',
+        );
+        let element = 'btn' + number;
+        let elementObj = document.getElementById(element);
+        if (elementObj) {
+            try {
+                elementObj.deleteAllEventListeners();
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        updateEventListenerInfo();
+    });
+
 function getEventListenerByHash(element, hashkey) {
     return getElementEventListeners(element).filter(
         el => el.eventListenerID === hashkey,

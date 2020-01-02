@@ -30,7 +30,7 @@ button {
 .smallContainer {
   padding: 1rem;
   border: #ccc dotted 2px;
-  width: 25rem; }
+  width: 30rem; }
 
 .fullscreen {
   width: 100vw;
@@ -51,5 +51,6 @@ button {
     margin: 1rem; }
   .leftsidebar button {
     background: #d8bfd8;
-    width: 10rem;
+    min-width: auto;
+    height: auto;
     font-size: 1rem; }
