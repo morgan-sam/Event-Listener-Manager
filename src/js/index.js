@@ -3,7 +3,7 @@ import * as intervals from './intervals.js';
 
 let eventListenerStorage = [];
 
-function createEventListener(elementID, elFunc) {
+function createEventListener(elementID, eventType, elementFunc) {
     let el = document.getElementById(elementID);
     if (el) {
         let randID = Math.random()
@@ -11,18 +11,20 @@ function createEventListener(elementID, elFunc) {
             .slice(2);
         eventListenerStorage.push({
             elementID,
-            elFunc,
+            eventType,
+            elementFunc,
             eventListenerID: randID,
         });
-        el.addEventListener('click', elFunc);
+        el.addEventListener(eventType, elementFunc);
         el.deleteEventListener = function deleteEventListener(delete_EL_ID) {
             let deleteEL = getEventListenerByHash(elementID, delete_EL_ID);
-            el.removeEventListener('click', deleteEL.elFunc);
+            el.removeEventListener(deleteEL.eventType, deleteEL.elementFunc);
             eventListenerStorage = eventListenerStorage.filter(
                 obj => obj.eventListenerID !== deleteEL.eventListenerID,
             );
             updateEventListenerInfo();
         };
+        return randID;
     }
 }
 
@@ -36,7 +38,7 @@ document
         let el = 'btn' + number;
 
         if (document.getElementById(el) && string) {
-            createEventListener(el, function() {
+            createEventListener(el, 'click', function() {
                 document.getElementById(
                     'messages',
                 ).innerHTML += `${string}<br>`;
@@ -60,6 +62,7 @@ document
                     .eventListenerID;
                 elementObj.deleteEventListener(selected_EL_ID);
             } catch (e) {
+                console.log(e);
                 console.log(`No event listener with hash: ${hashkey}`);
             }
         }
