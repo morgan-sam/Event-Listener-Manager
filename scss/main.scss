@@ -73,10 +73,10 @@ button {
     height: 100vh;
 }
 
-.leftsidebar {
+.leftsidebar,
+.rightsidebar {
     position: absolute;
     top: 0;
-    left: 0;
     padding: 3rem;
     height: auto;
     width: auto;
@@ -95,4 +95,11 @@ button {
         height: auto;
         font-size: 1rem;
     }
+}
+
+.leftsidebar {
+    left: 0;
+}
+.rightsidebar {
+    right: 0;
 }

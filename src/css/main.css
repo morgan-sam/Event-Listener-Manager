@@ -59,10 +59,10 @@ button {
   width: 100vw;
   height: 100vh; }
 
-.leftsidebar {
+.leftsidebar,
+.rightsidebar {
   position: absolute;
   top: 0;
-  left: 0;
   padding: 3rem;
   height: auto;
   width: auto;
@@ -70,10 +70,18 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center; }
-  .leftsidebar > * {
+  .leftsidebar > *,
+  .rightsidebar > * {
     margin: 1rem; }
-  .leftsidebar button {
+  .leftsidebar button,
+  .rightsidebar button {
     background: #d8bfd8;
     min-width: auto;
     height: auto;
     font-size: 1rem; }
+
+.leftsidebar {
+  left: 0; }
+
+.rightsidebar {
+  right: 0; }
