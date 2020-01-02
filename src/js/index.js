@@ -24,77 +24,16 @@ export const createEventListener = (elementID, eventType, elementFunc) => {
             eventListenerStorage = eventListenerStorage.filter(
                 obj => obj.eventListenerID !== deleteEL.eventListenerID,
             );
-            updateEventListenerInfo();
         };
         el.deleteAllEventListeners = function deleteAllEventListeners() {
             let eventListeners = getElementEventListeners(elementID);
             eventListeners.forEach(evnList =>
                 el.deleteEventListener(evnList.eventListenerID),
             );
-            updateEventListenerInfo();
         };
         return randID;
     }
 };
-
-document
-    .getElementById('newEventListenerBtn')
-    .addEventListener('click', function() {
-        let number = prompt(
-            'Enter a number of button to add event listener to:',
-        );
-        let string = prompt('Enter string to print on button press:');
-        let el = 'btn' + number;
-
-        if (document.getElementById(el) && string) {
-            createEventListener(el, 'click', function() {
-                document.getElementById(
-                    'messages',
-                ).innerHTML += `${string}<br>`;
-            });
-        }
-        updateEventListenerInfo();
-    });
-
-document
-    .getElementById('deleteEventListenerBtn')
-    .addEventListener('click', function() {
-        let number = prompt(
-            'Enter a number of button to delete event listener from:',
-        );
-        let hashkey = prompt('Enter the eventListenerID:');
-        let element = 'btn' + number;
-        let elementObj = document.getElementById(element);
-        if (elementObj) {
-            try {
-                let selected_EL_ID = getEventListenerByHash(element, hashkey)
-                    .eventListenerID;
-                elementObj.deleteEventListener(selected_EL_ID);
-            } catch (e) {
-                console.log(e);
-                console.log(`No event listener with hash: ${hashkey}`);
-            }
-        }
-        updateEventListenerInfo();
-    });
-
-document
-    .getElementById('deleteAllEventListenersBtn')
-    .addEventListener('click', function() {
-        let number = prompt(
-            'Enter a number of button to delete all event listeners from:',
-        );
-        let element = 'btn' + number;
-        let elementObj = document.getElementById(element);
-        if (elementObj) {
-            try {
-                elementObj.deleteAllEventListeners();
-            } catch (e) {
-                console.log(e);
-            }
-        }
-        updateEventListenerInfo();
-    });
 
 function getEventListenerByHash(element, hashkey) {
     return getElementEventListeners(element).filter(
@@ -106,21 +45,8 @@ function getElementEventListeners(element) {
     return eventListenerStorage.filter(el => el.elementID === element);
 }
 
-function updateEventListenerInfo() {
-    document.getElementById('eventListenerInfo').innerHTML = JSON.stringify(
-        eventListenerStorage,
-    ).replace(/},{/g, '}<br>{');
-}
-
-document
-    .getElementById('clearMessagesBtn')
-    .addEventListener('click', function() {
-        document.getElementById('messages').innerHTML = '';
-    });
-
-function randomInt(min, max) {
-    // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+export const getEventListenerList = () => {
+    return eventListenerStorage;
+};
 
 demo.demoFunc();
