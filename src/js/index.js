@@ -49,4 +49,4 @@ export const getEventListenerList = () => {
     return eventListenerStorage;
 };
 
-demo.demoFunc();
+demo.demoSelect();

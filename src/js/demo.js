@@ -1,6 +1,23 @@
 import * as elf from './index.js';
 
-export const demoFunc = () => {
+export const demoSelect = () => {
+    document.getElementById('demoOneBtn').addEventListener('click', function() {
+        //add demo one class
+        makeScreenActive('demoScreenOne');
+    });
+    document.getElementById('demoTwoBtn').addEventListener('click', function() {
+        //add demo two class
+        makeScreenActive('demoScreenTwo');
+    });
+
+    function makeScreenActive(className) {
+        let screens = document.querySelectorAll('[class*=demoScreen]');
+        screens.forEach(screen => screen.classList.remove('active'));
+        document.getElementsByClassName(className)[0].classList.add('active');
+    }
+};
+
+(function initDemoOne() {
     document
         .getElementById('newEventListenerBtn')
         .addEventListener('click', function() {
@@ -73,4 +90,4 @@ export const demoFunc = () => {
             elf.getEventListenerList(),
         ).replace(/},{/g, '}<br>{');
     }
-};
+})();

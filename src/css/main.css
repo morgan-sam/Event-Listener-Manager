@@ -1,6 +1,7 @@
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
 
 button {
   width: 8rem;
@@ -16,6 +17,28 @@ button {
   button:nth-child(4) {
     background: #add8e6; }
 
+.demoScreenOne,
+.demoScreenTwo {
+  display: none; }
+
+.active {
+  display: block; }
+
+.demoSelect {
+  z-index: 1;
+  position: absolute;
+  top: 0.5rem;
+  width: 20vw;
+  height: 20rem;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  .demoSelect button {
+    background-color: #ccc; }
+
 .center {
   position: relative;
   top: 0;
@@ -30,7 +53,7 @@ button {
 .smallContainer {
   padding: 1rem;
   border: #ccc dotted 2px;
-  width: 30rem; }
+  width: 32rem; }
 
 .fullscreen {
   width: 100vw;
