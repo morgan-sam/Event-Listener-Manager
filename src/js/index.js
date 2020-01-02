@@ -26,6 +26,13 @@ export const createEventListener = (elementID, eventType, elementFunc) => {
             );
             updateEventListenerInfo();
         };
+        el.deleteAllEventListeners = function deleteAllEventListeners() {
+            let eventListeners = getElementEventListeners(elementID);
+            eventListeners.forEach(evnList =>
+                el.deleteEventListener(evnList.eventListenerID),
+            );
+            updateEventListenerInfo();
+        };
         return randID;
     }
 };

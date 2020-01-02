@@ -1,8 +1,13 @@
 import * as elf from './index.js';
 
 export const demoFunc = () => {
-    let key = elf.createEventListener('btn1', 'click', () =>
-        console.log('I am button 1!'),
+    let eventOneKey = elf.createEventListener('btn1', 'click', () =>
+        console.log('The first message'),
     );
-    document.getElementById('btn1').deleteEventListener(key);
+    let eventTwoKey = elf.createEventListener('btn1', 'click', () =>
+        console.log('The second message'),
+    );
+
+    document.getElementById('btn1').deleteEventListener(eventOneKey);
+    document.getElementById('btn1').deleteEventListener(eventTwoKey);
 };
