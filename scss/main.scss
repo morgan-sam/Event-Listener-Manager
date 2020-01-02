@@ -34,7 +34,6 @@ button {
 }
 
 .demoSelect {
-    z-index: 1;
     position: absolute;
     top: 0.5rem;
     width: 20vw;
@@ -46,6 +45,7 @@ button {
     align-items: center;
     justify-content: center;
     button {
+        z-index: 1;
         background-color: #ccc;
     }
 }

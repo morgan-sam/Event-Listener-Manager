@@ -59,38 +59,15 @@
 
         <div class="demoScreenTwo active">
             <div class="rightsidebar">
-                <div class="center smallContainer">
-                    <p id="eventListenerInfo"></p>
-                    <br />
-                    <button
-                        id="newEventListenerBtn"
-                        type="button"
-                        class="button"
-                    >
-                        New Event Listener
-                    </button>
-                    <button
-                        id="deleteEventListenerBtn"
-                        type="button"
-                        class="button"
-                    >
-                        Delete Event Listener
-                    </button>
-                    <button
-                        id="deleteAllEventListenersBtn"
-                        type="button"
-                        class="button"
-                    >
-                        Delete All Event Listeners
-                    </button>
-                </div>
-                <div class="center smallContainer">
-                    <p id="messages"></p>
-                    <br />
-                    <button id="clearMessagesBtn" type="button" class="button">
-                        Clear Message History
-                    </button>
-                </div>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    minlength="4"
+                    maxlength="8"
+                    size="10"
+                />
             </div>
         </div>
     </body>
