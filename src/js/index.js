@@ -1,9 +1,11 @@
 import '../css/main.css';
+
+import * as demo from './demo.js';
 import * as intervals from './intervals.js';
 
 let eventListenerStorage = [];
 
-function createEventListener(elementID, eventType, elementFunc) {
+export const createEventListener = (elementID, eventType, elementFunc) => {
     let el = document.getElementById(elementID);
     if (el) {
         let randID = Math.random()
@@ -26,7 +28,7 @@ function createEventListener(elementID, eventType, elementFunc) {
         };
         return randID;
     }
-}
+};
 
 document
     .getElementById('newEventListenerBtn')
@@ -95,3 +97,5 @@ function randomInt(min, max) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+demo.demoFunc();
