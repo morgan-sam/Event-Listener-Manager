@@ -8,14 +8,39 @@ button {
   height: 2.2rem;
   margin: 0.3rem;
   font-size: 1.3rem; }
-  button:nth-child(1) {
-    background: #ff9994; }
-  button:nth-child(2) {
-    background: #ffffa1; }
-  button:nth-child(3) {
-    background: #a6f1a6; }
-  button:nth-child(4) {
-    background: #add8e6; }
+
+.demoOneButtons:nth-child(1) {
+  background: #ff9994; }
+
+.demoOneButtons:nth-child(2) {
+  background: #ffffa1; }
+
+.demoOneButtons:nth-child(3) {
+  background: #a6f1a6; }
+
+.demoOneButtons:nth-child(4) {
+  background: #add8e6; }
+
+.demoTwoButtons {
+  border-radius: 10px;
+  border: solid grey 1px; }
+  .demoTwoButtons:nth-child(1) {
+    background: #e3b4d3; }
+  .demoTwoButtons:nth-child(2) {
+    background: #a9cae3; }
+  .demoTwoButtons:nth-child(3) {
+    background: #cdb4d8; }
+
+.demoScreenTwo .input {
+  height: auto;
+  font-size: 1rem;
+  width: 100%; }
+
+.demoScreenTwo > .leftsidebar {
+  width: 30vw; }
+  .demoScreenTwo > .leftsidebar > h2 {
+    width: 100%;
+    margin: 0; }
 
 .demoScreenOne,
 .demoScreenTwo {
@@ -61,6 +86,7 @@ button {
 
 .leftsidebar,
 .rightsidebar {
+  z-index: 1;
   position: absolute;
   top: 0;
   padding: 3rem;

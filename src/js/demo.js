@@ -1,5 +1,7 @@
 import * as elf from './index.js';
 
+import './index.js';
+
 export const demoSelect = () => {
     document.getElementById('demoOneBtn').addEventListener('click', function() {
         //add demo one class
@@ -89,5 +91,77 @@ export const demoSelect = () => {
         document.getElementById('eventListenerInfo').innerHTML = JSON.stringify(
             elf.getEventListenerList(),
         ).replace(/},{/g, '}<br>{');
+    }
+})();
+
+(function initDemoTwo() {
+    document
+        .getElementById('codeNewEventListenerBtn')
+        .addEventListener('click', function() {
+            addTextToCode(
+                `createEventListener('elementID','eventType',eventFunction)`,
+            );
+        });
+
+    document.getElementById('assignBtnA').addEventListener('click', function() {
+        let string = getInputValue();
+        string = string.replace('elementID', 'btnA');
+        addTextToCode(string);
+    });
+    document.getElementById('assignBtnB').addEventListener('click', function() {
+        let string = getInputValue();
+        string = string.replace('elementID', 'btnB');
+        addTextToCode(string);
+    });
+    document.getElementById('assignBtnC').addEventListener('click', function() {
+        let string = getInputValue();
+        string = string.replace('elementID', 'btnC');
+        addTextToCode(string);
+    });
+    document
+        .getElementById('assignEventTypeClick')
+        .addEventListener('click', function() {
+            let string = getInputValue();
+            string = string.replace('eventType', 'click');
+            addTextToCode(string);
+        });
+    document
+        .getElementById('assignEventTypeMouseover')
+        .addEventListener('click', function() {
+            let string = getInputValue();
+            string = string.replace('eventType', 'mouseover');
+            addTextToCode(string);
+        });
+    document
+        .getElementById('assignAlertEvent')
+        .addEventListener('click', function() {
+            let string = getInputValue();
+            string = string.replace('eventFunction', `() => alert("Hi!")`);
+            addTextToCode(string);
+        });
+
+    document
+        .getElementById('assignConsoleLogEvent')
+        .addEventListener('click', function() {
+            let string = getInputValue();
+            string = string.replace(
+                'eventFunction',
+                `() => console.log("Hi!")`,
+            );
+            addTextToCode(string);
+        });
+
+    document.getElementById('runCodeBtn').addEventListener('click', function() {
+        let code = getInputValue();
+        let createEventListener = elf.createEventListener;
+        eval(code);
+    });
+
+    function getInputValue() {
+        return document.getElementById('codeInput').value;
+    }
+
+    function addTextToCode(string) {
+        document.getElementById('codeInput').value = string;
     }
 })();
