@@ -4,7 +4,8 @@ import * as intervals from './intervals.js';
 let eventListenerStorage = [];
 
 function createEventListener(elementID, elFunc) {
-    if (true) {
+    let el = document.getElementById(elementID);
+    if (el) {
         let randID = Math.random()
             .toString(36)
             .slice(2);
@@ -13,7 +14,6 @@ function createEventListener(elementID, elFunc) {
             elFunc,
             eventListenerID: randID,
         });
-        let el = document.getElementById(elementID);
         el.addEventListener('click', elFunc);
         el.deleteEventListener = function deleteEventListener(delete_EL_ID) {
             let deleteEL = getEventListenerByHash(elementID, delete_EL_ID);
