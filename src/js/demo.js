@@ -138,7 +138,7 @@ export const demoSelect = () => {
             let string = getInputValue();
             string = string.replace(
                 /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
-                `() => alert("Hi!")`,
+                `() => alert("${getTextValue()}")`,
             );
             addTextToCode(string);
         });
@@ -149,7 +149,7 @@ export const demoSelect = () => {
             let string = getInputValue();
             string = string.replace(
                 /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
-                `() => console.log("Hi!")`,
+                `() => console.log("${getTextValue()}")`,
             );
             addTextToCode(string);
         });
@@ -159,6 +159,9 @@ export const demoSelect = () => {
         let createEventListener = elf.createEventListener;
         eval(code);
     });
+    function getTextValue() {
+        return document.getElementById('textInput').value;
+    }
 
     function getInputValue() {
         return document.getElementById('codeInput').value;

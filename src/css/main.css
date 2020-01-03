@@ -31,17 +31,32 @@ button {
   .demoTwoButtons:nth-child(3) {
     background: #cdb4d8; }
 
-.demoScreenTwo .input {
+.demoScreenTwo .codeInput {
   height: auto;
   font-size: 1.4rem;
   width: 100%;
   padding: 0.5rem; }
 
-.demoScreenTwo > .leftsidebar {
+.demoScreenTwo .inputLabel {
+  display: inline-block;
+  vertical-align: middle; }
+
+.demoScreenTwo .leftsidebar {
   width: 33vw; }
-  .demoScreenTwo > .leftsidebar > h2 {
+  .demoScreenTwo .leftsidebar > h2 {
     width: 100%;
     margin: 0; }
+
+.demoScreenTwo .smallBtnCtn > * {
+  padding-left: 1rem;
+  padding-right: 1rem; }
+
+.demoScreenTwo .textInput {
+  height: auto;
+  font-size: 1.4rem;
+  width: 10vw;
+  vertical-align: middle;
+  padding-left: 0.25rem; }
 
 .demoScreenOne,
 .demoScreenTwo {

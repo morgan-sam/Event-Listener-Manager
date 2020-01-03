@@ -40,18 +40,33 @@ button {
     }
 }
 .demoScreenTwo {
-    .input {
+    .codeInput {
         height: auto;
         font-size: 1.4rem;
         width: 100%;
         padding: 0.5rem;
     }
-    > .leftsidebar {
+    .inputLabel {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .leftsidebar {
         width: 33vw;
         > h2 {
             width: 100%;
             margin: 0;
         }
+    }
+    .smallBtnCtn > * {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .textInput {
+        height: auto;
+        font-size: 1.4rem;
+        width: 10vw;
+        vertical-align: middle;
+        padding-left: 0.25rem;
     }
 }
 
