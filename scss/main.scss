@@ -42,11 +42,12 @@ button {
 .demoScreenTwo {
     .input {
         height: auto;
-        font-size: 1rem;
+        font-size: 1.4rem;
         width: 100%;
+        padding: 0.5rem;
     }
     > .leftsidebar {
-        width: 30vw;
+        width: 33vw;
         > h2 {
             width: 100%;
             margin: 0;
@@ -90,6 +91,16 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.smallBtnCtn {
+    width: 100%;
+
+    > button {
+        height: auto;
+        width: auto;
+        padding: 1rem;
+    }
 }
 
 .smallContainer {
