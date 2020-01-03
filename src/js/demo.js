@@ -105,38 +105,41 @@ export const demoSelect = () => {
 
     document.getElementById('assignBtnA').addEventListener('click', function() {
         let string = getInputValue();
-        string = string.replace('elementID', 'btnA');
+        string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnA');
         addTextToCode(string);
     });
     document.getElementById('assignBtnB').addEventListener('click', function() {
         let string = getInputValue();
-        string = string.replace('elementID', 'btnB');
+        string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnB');
         addTextToCode(string);
     });
     document.getElementById('assignBtnC').addEventListener('click', function() {
         let string = getInputValue();
-        string = string.replace('elementID', 'btnC');
+        string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnC');
         addTextToCode(string);
     });
     document
         .getElementById('assignEventTypeClick')
         .addEventListener('click', function() {
             let string = getInputValue();
-            string = string.replace('eventType', 'click');
+            string = string.replace(/eventType|click|mouseover/g, 'click');
             addTextToCode(string);
         });
     document
         .getElementById('assignEventTypeMouseover')
         .addEventListener('click', function() {
             let string = getInputValue();
-            string = string.replace('eventType', 'mouseover');
+            string = string.replace(/eventType|click|mouseover/g, 'mouseover');
             addTextToCode(string);
         });
     document
         .getElementById('assignAlertEvent')
         .addEventListener('click', function() {
             let string = getInputValue();
-            string = string.replace('eventFunction', `() => alert("Hi!")`);
+            string = string.replace(
+                /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
+                `() => alert("Hi!")`,
+            );
             addTextToCode(string);
         });
 
@@ -145,7 +148,7 @@ export const demoSelect = () => {
         .addEventListener('click', function() {
             let string = getInputValue();
             string = string.replace(
-                'eventFunction',
+                /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
                 `() => console.log("Hi!")`,
             );
             addTextToCode(string);
