@@ -16,7 +16,7 @@ export const createEventListener = (elementID, eventType, elementFunc, eventCate
             eventType,
             elementFunc,
             eventListenerID: randID,
-            eventCategory
+            eventCategory: eventCategory ? eventCategory : undefined
         });
         el.addEventListener(eventType, elementFunc);
         el.deleteEventListener = function deleteEventListener(delete_EL_ID) {
@@ -32,6 +32,7 @@ export const createEventListener = (elementID, eventType, elementFunc, eventCate
                 el.deleteEventListener(evnList.eventListenerID),
             );
         };
+        console.log(eventListenerStorage);
         return randID;
     }
 };
@@ -47,6 +48,10 @@ export const deleteEventListenerByCategory = (category) => {
         return true;
     });
     categoryEvents.forEach(el => document.getElementById(el.elementID).deleteEventListener(el.eventListenerID));
+}
+
+export const removeAllEventListeners = () => {
+    eventListenerStorage.forEach(el => document.getElementById(el.elementID).deleteEventListener(el.eventListenerID));
 }
 
 function alphabetizeString(string) {

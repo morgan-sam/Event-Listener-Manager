@@ -3,11 +3,11 @@ import * as elf from './index.js';
 import './index.js';
 
 export const demoSelect = () => {
-    document.getElementById('demoOneBtn').addEventListener('click', function() {
+    document.getElementById('demoOneBtn').addEventListener('click', function () {
         //add demo one class
         makeScreenActive('demoScreenOne');
     });
-    document.getElementById('demoTwoBtn').addEventListener('click', function() {
+    document.getElementById('demoTwoBtn').addEventListener('click', function () {
         //add demo two class
         makeScreenActive('demoScreenTwo');
     });
@@ -22,28 +22,28 @@ export const demoSelect = () => {
 (function initDemoOne() {
     document
         .getElementById('newEventListenerBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let number = prompt(
                 'Enter a number of button to add event listener to:',
             );
             let el = 'btn' + number;
             let string = prompt('Enter string to print on button press:');
             let category = prompt('Enter category to place event (leave blank for none):');
-        
+
 
             if (document.getElementById(el) && string) {
-                elf.createEventListener(el, 'click', function() {
+                elf.createEventListener(el, 'click', function () {
                     document.getElementById(
                         'messages',
                     ).innerHTML += `${string}<br>`;
-                },category);
+                }, category);
             }
             updateEventListenerInfo();
         });
 
     document
         .getElementById('deleteEventListenerBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let number = prompt(
                 'Enter a number of button to delete event listener from:',
             );
@@ -67,7 +67,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('deleteAllEventListenersBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let number = prompt(
                 'Enter a number of button to delete all event listeners from:',
             );
@@ -82,20 +82,26 @@ export const demoSelect = () => {
             }
             updateEventListenerInfo();
         });
-    
+
     document
         .getElementById('deleteEventListenersByCategoryBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let category = prompt(
                 'Enter a category of event listeners to delete:',
             );
             elf.deleteEventListenerByCategory(category);
             updateEventListenerInfo();
         });
+    document
+        .getElementById('removeDocumentEventListeners')
+        .addEventListener('click', function () {
+            elf.removeAllEventListeners();
+            updateEventListenerInfo();
+        });
 
     document
         .getElementById('clearMessagesBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             document.getElementById('messages').innerHTML = '';
         });
 
@@ -109,44 +115,44 @@ export const demoSelect = () => {
 (function initDemoTwo() {
     document
         .getElementById('codeNewEventListenerBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             addTextToCode(
                 `createEventListener('elementID','eventType',eventFunction)`,
             );
         });
 
-    document.getElementById('assignBtnA').addEventListener('click', function() {
+    document.getElementById('assignBtnA').addEventListener('click', function () {
         let string = getInputValue();
         string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnA');
         addTextToCode(string);
     });
-    document.getElementById('assignBtnB').addEventListener('click', function() {
+    document.getElementById('assignBtnB').addEventListener('click', function () {
         let string = getInputValue();
         string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnB');
         addTextToCode(string);
     });
-    document.getElementById('assignBtnC').addEventListener('click', function() {
+    document.getElementById('assignBtnC').addEventListener('click', function () {
         let string = getInputValue();
         string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnC');
         addTextToCode(string);
     });
     document
         .getElementById('assignEventTypeClick')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let string = getInputValue();
             string = string.replace(/eventType|click|mouseover/g, 'click');
             addTextToCode(string);
         });
     document
         .getElementById('assignEventTypeMouseover')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let string = getInputValue();
             string = string.replace(/eventType|click|mouseover/g, 'mouseover');
             addTextToCode(string);
         });
     document
         .getElementById('assignAlertEvent')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let string = getInputValue();
             string = string.replace(
                 /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
@@ -157,7 +163,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('assignConsoleLogEvent')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let string = getInputValue();
             string = string.replace(
                 /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
@@ -166,12 +172,13 @@ export const demoSelect = () => {
             addTextToCode(string);
         });
 
-    document.getElementById('runCodeBtn').addEventListener('click', function() {
+    document.getElementById('runCodeBtn').addEventListener('click', function () {
         let code = getInputValue();
         let createEventListener = elf.createEventListener;
         eval(code);
         updateEventListenerInfo();
     });
+
     function getTextValue() {
         return document.getElementById('textInput').value;
     }
@@ -183,7 +190,7 @@ export const demoSelect = () => {
     function addTextToCode(string) {
         document.getElementById('codeInput').value = string;
     }
-    
+
     function updateEventListenerInfo() {
         document.getElementById('demoTwoEventListenerInfo').innerHTML = JSON.stringify(
             elf.getEventListenerList(),

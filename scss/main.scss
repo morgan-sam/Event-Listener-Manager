@@ -15,12 +15,15 @@ button {
     &:nth-child(1) {
         background: #ff9994;
     }
+
     &:nth-child(2) {
         background: #ffffa1;
     }
+
     &:nth-child(3) {
         background: #a6f1a6;
     }
+
     &:nth-child(4) {
         background: #add8e6;
     }
@@ -29,16 +32,20 @@ button {
 .demoTwoButtons {
     border-radius: 10px;
     border: solid grey 1px;
+
     &:nth-child(1) {
         background: #e3b4d3;
     }
+
     &:nth-child(2) {
         background: #a9cae3;
     }
+
     &:nth-child(3) {
         background: #cdb4d8;
     }
 }
+
 .demoScreenTwo {
     .codeInput {
         height: auto;
@@ -46,21 +53,26 @@ button {
         width: 100%;
         padding: 0.5rem;
     }
+
     .inputLabel {
         display: inline-block;
         vertical-align: middle;
     }
+
     .leftsidebar {
         width: 33vw;
+
         > h2 {
             width: 100%;
             margin: 0;
         }
     }
+
     .smallBtnCtn > * {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
     .textInput {
         height: auto;
         font-size: 1.4rem;
@@ -90,6 +102,7 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
     button {
         z-index: 1;
         background-color: #ccc;
@@ -158,6 +171,7 @@ button {
 .leftsidebar {
     left: 0;
 }
+
 .rightsidebar {
     right: 0;
 }
