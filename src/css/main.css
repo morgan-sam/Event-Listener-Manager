@@ -79,11 +79,8 @@ button {
 
 .demoSelect {
   position: absolute;
-  top: 0.5rem;
-  width: 20vw;
-  height: 20rem;
-  top: 0;
-  width: 100vw;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
