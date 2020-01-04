@@ -139,8 +139,11 @@ button {
   .rightsidebar button {
     background: #d8bfd8;
     min-width: auto;
-    height: auto;
+    min-height: auto;
     font-size: 1rem; }
+
+.optionsButtons > button {
+  height: auto; }
 
 .leftsidebar {
   left: 0; }
