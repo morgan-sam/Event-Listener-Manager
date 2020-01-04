@@ -101,7 +101,8 @@ button {
 .smallContainer {
   padding: 1rem;
   border: #ccc dotted 2px;
-  width: 32rem; }
+  min-width: 32rem;
+  width: auto; }
 
 .fullscreen {
   width: 100vw;

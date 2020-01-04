@@ -88,7 +88,7 @@ export const demoSelect = () => {
         });
 
     function updateEventListenerInfo() {
-        document.getElementById('eventListenerInfo').innerHTML = JSON.stringify(
+        document.getElementById('demoOneEventListenerInfo').innerHTML = JSON.stringify(
             elf.getEventListenerList(),
         ).replace(/},{/g, '}<br>{');
     }
@@ -158,6 +158,7 @@ export const demoSelect = () => {
         let code = getInputValue();
         let createEventListener = elf.createEventListener;
         eval(code);
+        updateEventListenerInfo();
     });
     function getTextValue() {
         return document.getElementById('textInput').value;
@@ -169,5 +170,11 @@ export const demoSelect = () => {
 
     function addTextToCode(string) {
         document.getElementById('codeInput').value = string;
+    }
+    
+    function updateEventListenerInfo() {
+        document.getElementById('demoTwoEventListenerInfo').innerHTML = JSON.stringify(
+            elf.getEventListenerList(),
+        ).replace(/},{/g, '}<br>{');
     }
 })();
