@@ -5,7 +5,7 @@ import * as intervals from './intervals.js';
 
 let eventListenerStorage = [];
 
-export const createEventListener = (elementID, eventType, elementFunc) => {
+export const createEventListener = (elementID, eventType, elementFunc, eventCategory) => {
     let el = document.getElementById(elementID);
     if (el) {
         let randID = Math.random()
@@ -16,6 +16,7 @@ export const createEventListener = (elementID, eventType, elementFunc) => {
             eventType,
             elementFunc,
             eventListenerID: randID,
+            eventCategory
         });
         el.addEventListener(eventType, elementFunc);
         el.deleteEventListener = function deleteEventListener(delete_EL_ID) {
@@ -34,6 +35,11 @@ export const createEventListener = (elementID, eventType, elementFunc) => {
         return randID;
     }
 };
+
+export const deleteEventListenerByCategory = (category) => {
+    let categoryEvents = eventListenerStorage.filter(el => el.eventCategory === category);
+    categoryEvents.forEach(el => document.getElementById(el.elementID).deleteEventListener(el.eventListenerID));
+}
 
 function getEventListenerByHash(element, hashkey) {
     return getElementEventListeners(element).filter(

@@ -26,15 +26,17 @@ export const demoSelect = () => {
             let number = prompt(
                 'Enter a number of button to add event listener to:',
             );
-            let string = prompt('Enter string to print on button press:');
             let el = 'btn' + number;
+            let string = prompt('Enter string to print on button press:');
+            let category = prompt('Enter category to place event (leave blank for none):');
+        
 
             if (document.getElementById(el) && string) {
                 elf.createEventListener(el, 'click', function() {
                     document.getElementById(
                         'messages',
                     ).innerHTML += `${string}<br>`;
-                });
+                },category);
             }
             updateEventListenerInfo();
         });
@@ -78,6 +80,16 @@ export const demoSelect = () => {
                     console.log(e);
                 }
             }
+            updateEventListenerInfo();
+        });
+    
+    document
+        .getElementById('deleteEventListenersByCategoryBtn')
+        .addEventListener('click', function() {
+            let category = prompt(
+                'Enter a category of event listeners to delete:',
+            );
+            elf.deleteEventListenerByCategory(category);
             updateEventListenerInfo();
         });
 
