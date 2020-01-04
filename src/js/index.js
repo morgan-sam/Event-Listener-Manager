@@ -37,8 +37,15 @@ export const createEventListener = (elementID, eventType, elementFunc, eventCate
 };
 
 export const deleteEventListenerByCategory = (category) => {
-    let regexstring = `((?! ))(\\b${category}\\b)`;
-    let categoryEvents = eventListenerStorage.filter(el => new RegExp(regexstring, 'g').test(el.eventCategory));
+    let categories = category.split(' ');
+    let regexString;
+    let categoryEvents = eventListenerStorage.filter(el => {
+        for (let i = 0; i < categories.length; i++) {
+            regexString = `((?! ))(\\b${categories[i]}\\b)`;
+            if (!(RegExp(regexString, 'g').test(el.eventCategory))) return false;
+        }
+        return true;
+    });
     categoryEvents.forEach(el => document.getElementById(el.elementID).deleteEventListener(el.eventListenerID));
 }
 
