@@ -66,8 +66,6 @@ button {
             display: inline-block;
             vertical-align: middle;
         }
-
-
     }
 
     .smallBtnCtn > * {
@@ -136,7 +134,6 @@ button {
 }
 
 .smallBtnCtn {
-
     > button {
         height: auto;
         width: auto;
@@ -144,16 +141,17 @@ button {
     }
 }
 
-.testButtons {
-    .smallBtnCtn {
-        button {
-            min-width: 6rem;
-        }
+.horizontalBtns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    button {
+        width: 9rem;
+        margin: 0 auto;
     }
 }
 
 .smallContainer {
-    padding: 1rem;
     border: #ccc dotted 2px;
     width: auto;
     padding: 2rem;
@@ -175,7 +173,6 @@ button {
     align-content: stretch;
     align-items: flex-start;
 }
-
 
 .barcolumn {
     order: 0;

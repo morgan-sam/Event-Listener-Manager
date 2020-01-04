@@ -103,11 +103,15 @@ button {
   width: auto;
   padding: 1rem; }
 
-.testButtons .smallBtnCtn button {
-  min-width: 6rem; }
+.horizontalBtns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr; }
+  .horizontalBtns button {
+    width: 9rem;
+    margin: 0 auto; }
 
 .smallContainer {
-  padding: 1rem;
   border: #ccc dotted 2px;
   width: auto;
   padding: 2rem; }

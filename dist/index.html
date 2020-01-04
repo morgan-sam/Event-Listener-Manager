@@ -1,160 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-</head>
+    <body>
+        <div class="demoSelect">
+            <button id="demoOneBtn" type="button" class="button">Demo 1</button>
+            <button id="demoTwoBtn" type="button" class="button">Demo 2</button>
+        </div>
 
-<body>
-    <div class="demoSelect">
-        <button id="demoOneBtn" type="button" class="button">Demo 1</button>
-        <button id="demoTwoBtn" type="button" class="button">Demo 2</button>
-    </div>
+        <div class="demoScreenOne active">
+            <div class="pagecolumns">
+                <div class="barcolumn">
+                    <div class="center smallContainer assignmentOptions">
+                        <button
+                            id="newEventListenerBtn"
+                            type="button"
+                            class="button"
+                        >
+                            Create New Event Listener
+                        </button>
+                        <button
+                            id="deleteEventListenerBtn"
+                            type="button"
+                            class="button"
+                        >
+                            Delete Event Listener
+                        </button>
+                        <button
+                            id="deleteAllEventListenersBtn"
+                            type="button"
+                            class="button"
+                        >
+                            Delete All Event Listeners On Element
+                        </button>
+                        <button
+                            id="deleteEventListenersByCategoryBtn"
+                            type="button"
+                            class="button"
+                        >
+                            Delete Event Listeners By Category
+                        </button>
+                        <button
+                            id="deleteDocumentEventListenersBtn"
+                            type="button"
+                            class="button"
+                        >
+                            Delete All Document Event Listeners
+                        </button>
+                    </div>
+                    <div class="center smallContainer assignmentOptions">
+                        <button
+                            id="clearMessagesBtn"
+                            type="button"
+                            class="button"
+                        >
+                            Clear Message History
+                        </button>
+                    </div>
 
-    <div class="demoScreenOne active">
-        <div class="pagecolumns">
-            <div class="barcolumn">
-                <div class="center smallContainer assignmentOptions">
-                    <button id="newEventListenerBtn" type="button" class="button">
-                        Create New Event Listener
-                    </button>
-                    <button id="deleteEventListenerBtn" type="button" class="button">
-                        Delete Event Listener
-                    </button>
-                    <button id="deleteAllEventListenersBtn" type="button" class="button">
-                        Delete All Event Listeners On Element
-                    </button>
-                    <button id="deleteEventListenersByCategoryBtn" type="button" class="button">
-                        Delete Event Listeners By Category
-                    </button>
-                    <button id="deleteDocumentEventListenersBtn" type="button" class="button">
-                        Delete All Document Event Listeners
-                    </button>
+                    <div class="center smallContainer">
+                        <button id="btn1" type="button" class="demoOneButtons">
+                            1
+                        </button>
+                        <button id="btn2" type="button" class="demoOneButtons">
+                            2
+                        </button>
+                        <button id="btn3" type="button" class="demoOneButtons">
+                            3
+                        </button>
+                        <button id="btn4" type="button" class="demoOneButtons">
+                            4
+                        </button>
+                    </div>
                 </div>
-                <div class="center smallContainer assignmentOptions">
-                    <button id="clearMessagesBtn" type="button" class="button">
-                        Clear Message History
-                    </button>
+
+                <div class="barcolumn">
+                    <div class="center smallContainer messageContainer">
+                        <h3>Messages:</h3>
+                        <p id="messages"></p>
+                    </div>
                 </div>
 
-                <div class="center smallContainer">
-                    <button id="btn1" type="button" class="demoOneButtons">
-                        1
-                    </button>
-                    <button id="btn2" type="button" class="demoOneButtons">
-                        2
-                    </button>
-                    <button id="btn3" type="button" class="demoOneButtons">
-                        3
-                    </button>
-                    <button id="btn4" type="button" class="demoOneButtons">
-                        4
-                    </button>
+                <div class="barcolumn">
+                    <div class="center smallContainer eventListenerInfo">
+                        <h3>Active Event Listeners:</h3>
+                        <p id="demoOneEventListenerInfo"></p>
+                    </div>
                 </div>
             </div>
+        </div>
 
+        <div class="demoScreenTwo">
             <div class="barcolumn">
-                <div class="center smallContainer messageContainer">
-                    <h3>Messages:</h3>
-                    <p id="messages"></p>
+                <div class="assignmentOptions">
+                    <div class="smallTextCtn">
+                        <h2>Code Input:</h2>
+                        <input
+                            type="text"
+                            id="codeInput"
+                            name="code"
+                            class="codeInput"
+                        />
+                    </div>
+                    <div class="smallBtnCtn">
+                        <button
+                            id="codeNewEventListenerBtn"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Create Event Listener Function
+                        </button>
+                    </div>
+                    <div class="smallBtnCtn">
+                        <button
+                            id="assignBtnA"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Button A
+                        </button>
+                        <button
+                            id="assignBtnB"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Button B
+                        </button>
+                        <button
+                            id="assignBtnC"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Button C
+                        </button>
+                    </div>
+
+                    <div class="smallBtnCtn">
+                        <button
+                            id="assignEventTypeClick"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Event Type Click
+                        </button>
+                        <button
+                            id="assignEventTypeMouseover"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Event Type Mouseover
+                        </button>
+                    </div>
+                    <div class="smallTextCtn">
+                        <h3 class="inputLabel">Message to display/print:</h3>
+                        <input
+                            type="text"
+                            id="textInput"
+                            name="text"
+                            class="textInput"
+                        />
+                    </div>
+                    <div class="smallBtnCtn">
+                        <button
+                            id="assignAlertEvent"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Alert Event
+                        </button>
+                        <button
+                            id="assignConsoleLogEvent"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Console Log Event
+                        </button>
+                    </div>
+
+                    <div class="smallBtnCtn">
+                        <button
+                            id="assignCategoryGreeting"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Category Greeting
+                        </button>
+                        <button
+                            id="assignCategoryMessage"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Assign Category Message
+                        </button>
+                    </div>
+
+                    <div class="smallBtnCtn">
+                        <button
+                            id="runCodeBtn"
+                            type="button"
+                            class="demoTwoCodeButtons"
+                        >
+                            Run Code Input
+                        </button>
+                    </div>
+                </div>
+                <div class="testButtons">
+                    <div class="smallBtnCtn">
+                        <h3 class="inputLabel">Assignable Buttons:</h3>
+                        <button id="btnA" type="button" class="demoTwoButtons">
+                            A
+                        </button>
+                        <button id="btnB" type="button" class="demoTwoButtons">
+                            B
+                        </button>
+                        <button id="btnC" type="button" class="demoTwoButtons">
+                            C
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            <div class="barcolumn">
+            <div class="rightsidebar">
                 <div class="center smallContainer eventListenerInfo">
-                    <h3>Active Event Listeners:</h3>
-                    <p id="demoOneEventListenerInfo"></p>
+                    <p id="demoTwoEventListenerInfo"></p>
+                    <br />
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="demoScreenTwo">
-        <div class="leftsidebar">
-            <div class="assignmentOptions">
-                <div class="smallTextCtn">
-                    <h2>Code Input:</h2>
-                    <input type="text" id="codeInput" name="code" class="codeInput" />
-                </div>
-                <div class="smallBtnCtn">
-                    <button id="codeNewEventListenerBtn" type="button" class="demoTwoCodeButtons">
-                        Create Event Listener Function
-                    </button>
-                </div>
-                <div class="smallBtnCtn">
-                    <button id="assignBtnA" type="button" class="demoTwoCodeButtons">
-                        Assign Button A
-                    </button>
-                    <button id="assignBtnB" type="button" class="demoTwoCodeButtons">
-                        Assign Button B
-                    </button>
-                    <button id="assignBtnC" type="button" class="demoTwoCodeButtons">
-                        Assign Button C
-                    </button>
-                </div>
-
-                <div class="smallBtnCtn">
-                    <button id="assignEventTypeClick" type="button" class="demoTwoCodeButtons">
-                        Assign Event Type Click
-                    </button>
-                    <button id="assignEventTypeMouseover" type="button" class="demoTwoCodeButtons">
-                        Assign Event Type Mouseover
-                    </button>
-                </div>
-                <div class="smallTextCtn">
-                    <h3 class="inputLabel">Message to display/print:</h3>
-                    <input type="text" id="textInput" name="text" class="textInput" />
-                </div>
-                <div class="smallBtnCtn">
-                    <button id="assignAlertEvent" type="button" class="demoTwoCodeButtons">
-                        Assign Alert Event
-                    </button>
-                    <button id="assignConsoleLogEvent" type="button" class="demoTwoCodeButtons">
-                        Assign Console Log Event
-                    </button>
-                </div>
-
-
-                <div class="smallBtnCtn">
-                    <button id="assignCategoryGreeting" type="button" class="demoTwoCodeButtons">
-                        Assign Category Greeting
-                    </button>
-                    <button id="assignCategoryMessage" type="button" class="demoTwoCodeButtons">
-                        Assign Category Message
-                    </button>
-                </div>
-
-                <div class="smallBtnCtn">
-                    <button id="runCodeBtn" type="button" class="demoTwoCodeButtons">
-                        Run Code Input
-                    </button>
-                </div>
-            </div>
-            <div class="testButtons">
-                <div class="smallBtnCtn">
-                    <h3 class="inputLabel">Assignable Buttons:</h3>
-                    <button id="btnA" type="button" class="demoTwoButtons">
-                        A
-                    </button>
-                    <button id="btnB" type="button" class="demoTwoButtons">
-                        B
-                    </button>
-                    <button id="btnC" type="button" class="demoTwoButtons">
-                        C
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="rightsidebar">
-            <div class="center smallContainer eventListenerInfo">
-                <p id="demoTwoEventListenerInfo"></p>
-                <br />
-            </div>
-        </div>
-    </div>
-<script type="text/javascript" src="./bundle.js?a4798ae6c4e2475f552f"></script></body>
-
+    <script type="text/javascript" src="./bundle.js?758b53d43420cfc87c91"></script></body>
 </html>
