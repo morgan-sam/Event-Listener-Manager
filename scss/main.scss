@@ -52,7 +52,7 @@ button {
 
         > * {
             width: 100%;
-            margin: 0;
+            margin: 1rem;
 
             > button {
                 height: 1rem;
@@ -147,6 +147,14 @@ button {
         height: auto;
         width: auto;
         padding: 1rem;
+    }
+}
+
+.testButtons {
+    .smallBtnCtn {
+        button {
+            min-width: 6rem;
+        }
     }
 }
 

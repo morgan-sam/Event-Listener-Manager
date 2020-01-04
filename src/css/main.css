@@ -35,7 +35,7 @@ button {
   width: 33vw; }
   .demoScreenTwo .leftsidebar > * {
     width: 100%;
-    margin: 0; }
+    margin: 1rem; }
     .demoScreenTwo .leftsidebar > * > button {
       height: 1rem;
       text-align: center;
@@ -109,6 +109,9 @@ button {
     height: auto;
     width: auto;
     padding: 1rem; }
+
+.testButtons .smallBtnCtn button {
+  min-width: 6rem; }
 
 .smallContainer {
   padding: 1rem;
