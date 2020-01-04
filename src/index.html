@@ -14,56 +14,65 @@
         <button id="demoTwoBtn" type="button" class="button">Demo 2</button>
     </div>
 
-    <div class="demoScreenOne">
-        <div class="leftsidebar">
-            <div class="center smallContainer assignmentOptions">
-                <button id="newEventListenerBtn" type="button" class="button">
-                    Create New Event Listener
-                </button>
-                <button id="deleteEventListenerBtn" type="button" class="button">
-                    Delete Event Listener
-                </button>
-                <button id="deleteAllEventListenersBtn" type="button" class="button">
-                    Delete All Event Listeners On Element
-                </button>
-                <button id="deleteEventListenersByCategoryBtn" type="button" class="button">
-                    Delete Event Listeners By Category
-                </button>
-                <button id="deleteDocumentEventListenersBtn" type="button" class="button">
-                    Delete All Document Event Listeners
-                </button>
-            </div>
-            <div class="center smallContainer assignmentOptions">
-                <p id="messages"></p>
-                <br />
-                <button id="clearMessagesBtn" type="button" class="button">
-                    Clear Message History
-                </button>
+    <div class="demoScreenOne active">
+        <div class="pagecolumns">
+            <div class="barcolumn">
+                <div class="center smallContainer assignmentOptions">
+                    <button id="newEventListenerBtn" type="button" class="button">
+                        Create New Event Listener
+                    </button>
+                    <button id="deleteEventListenerBtn" type="button" class="button">
+                        Delete Event Listener
+                    </button>
+                    <button id="deleteAllEventListenersBtn" type="button" class="button">
+                        Delete All Event Listeners On Element
+                    </button>
+                    <button id="deleteEventListenersByCategoryBtn" type="button" class="button">
+                        Delete Event Listeners By Category
+                    </button>
+                    <button id="deleteDocumentEventListenersBtn" type="button" class="button">
+                        Delete All Document Event Listeners
+                    </button>
+                </div>
+                <div class="center smallContainer assignmentOptions">
+                    <button id="clearMessagesBtn" type="button" class="button">
+                        Clear Message History
+                    </button>
+                </div>
+
+                <div class="center smallContainer">
+                    <button id="btn1" type="button" class="demoOneButtons">
+                        1
+                    </button>
+                    <button id="btn2" type="button" class="demoOneButtons">
+                        2
+                    </button>
+                    <button id="btn3" type="button" class="demoOneButtons">
+                        3
+                    </button>
+                    <button id="btn4" type="button" class="demoOneButtons">
+                        4
+                    </button>
+                </div>
             </div>
 
-            <div class="center smallContainer">
-                <button id="btn1" type="button" class="demoOneButtons">
-                    1
-                </button>
-                <button id="btn2" type="button" class="demoOneButtons">
-                    2
-                </button>
-                <button id="btn3" type="button" class="demoOneButtons">
-                    3
-                </button>
-                <button id="btn4" type="button" class="demoOneButtons">
-                    4
-                </button>
+            <div class="barcolumn">
+                <div class="center smallContainer messageContainer">
+                    <h3>Messages:</h3>
+                    <p id="messages"></p>
+                </div>
             </div>
-        </div>
-        <div class="rightsidebar">
-            <div class="center smallContainer eventListenerInfo">
-                <p id="demoOneEventListenerInfo"></p>
+
+            <div class="barcolumn">
+                <div class="center smallContainer eventListenerInfo">
+                    <h3>Active Event Listeners:</h3>
+                    <p id="demoOneEventListenerInfo"></p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="demoScreenTwo active">
+    <div class="demoScreenTwo">
         <div class="leftsidebar">
             <div class="assignmentOptions">
                 <div class="smallTextCtn">

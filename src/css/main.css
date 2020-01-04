@@ -34,7 +34,6 @@ button {
 .demoScreenTwo .leftsidebar {
   width: 33vw; }
   .demoScreenTwo .leftsidebar > * {
-    width: 100%;
     margin: 1rem; }
     .demoScreenTwo .leftsidebar > * > button {
       height: 1rem;
@@ -94,18 +93,15 @@ button {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; }
 
-.smallBtnCtn {
-  width: 100%; }
-  .smallBtnCtn > button {
-    height: auto;
-    width: auto;
-    padding: 1rem; }
+.smallBtnCtn > button {
+  height: auto;
+  width: auto;
+  padding: 1rem; }
 
 .testButtons .smallBtnCtn button {
   min-width: 6rem; }
@@ -113,40 +109,50 @@ button {
 .smallContainer {
   padding: 1rem;
   border: #ccc dotted 2px;
-  min-width: 32rem;
-  width: auto; }
+  width: auto;
+  padding: 2rem; }
+  .smallContainer > h3 {
+    padding-bottom: 2rem; }
 
 .fullscreen {
-  width: 100vw;
   height: 100vh; }
 
-.leftsidebar,
-.rightsidebar {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  padding: 3rem;
-  height: auto;
-  width: auto;
+.pagecolumns {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-  .leftsidebar > *,
-  .rightsidebar > * {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start; }
+
+.barcolumn {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  z-index: 1;
+  padding: 3rem;
+  padding-right: 0;
+  height: auto;
+  width: auto; }
+  .barcolumn > * {
     margin: 1rem; }
-  .leftsidebar button,
-  .rightsidebar button {
+  .barcolumn button {
     background: #d8bfd8;
     min-width: auto;
     min-height: auto;
     font-size: 1rem; }
 
-.optionsButtons > button {
+.assignmentOptions > button {
   height: auto; }
 
-.leftsidebar {
-  left: 0; }
+.messageContainer {
+  width: 15vw; }
 
-.rightsidebar {
-  right: 0; }
+.eventListenerInfo {
+  width: 50vw;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap; }
+  .eventListenerInfo > p {
+    width: 100%;
+    text-overflow: ellipsis; }
