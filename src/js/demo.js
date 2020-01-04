@@ -93,9 +93,9 @@ export const demoSelect = () => {
             updateEventListenerInfo();
         });
     document
-        .getElementById('removeDocumentEventListeners')
+        .getElementById('deleteDocumentEventListenersBtn')
         .addEventListener('click', function () {
-            elf.removeAllEventListeners();
+            elf.deleteDocumentEventListeners();
             updateEventListenerInfo();
         });
 

@@ -50,7 +50,7 @@ export const deleteEventListenerByCategory = (category) => {
     categoryEvents.forEach(el => document.getElementById(el.elementID).deleteEventListener(el.eventListenerID));
 }
 
-export const removeAllEventListeners = () => {
+export const deleteDocumentEventListeners = () => {
     eventListenerStorage.forEach(el => document.getElementById(el.elementID).deleteEventListener(el.eventListenerID));
 }
 
