@@ -117,7 +117,7 @@ export const demoSelect = () => {
         .getElementById('codeNewEventListenerBtn')
         .addEventListener('click', function () {
             addTextToCode(
-                `createEventListener('elementID','eventType',eventFunction)`,
+                `createEventListener('elementID','eventType',eventFunction,'eventCategory')`,
             );
         });
 
@@ -169,6 +169,20 @@ export const demoSelect = () => {
                 /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
                 `() => console.log("${getTextValue()}")`,
             );
+            addTextToCode(string);
+        });
+    document
+        .getElementById('assignCategoryGreeting')
+        .addEventListener('click', function () {
+            let string = getInputValue();
+            string = string.replace(/eventCategory|Greeting|Message/g, 'Greeting');
+            addTextToCode(string);
+        });
+
+    document.getElementById('assignCategoryMessage')
+        .addEventListener('click', function () {
+            let string = getInputValue();
+            string = string.replace(/eventCategory|Greeting|Message/g, 'Message');
             addTextToCode(string);
         });
 
