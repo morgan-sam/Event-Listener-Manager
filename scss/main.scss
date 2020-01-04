@@ -47,25 +47,28 @@ button {
 }
 
 .demoScreenTwo {
-    .codeInput {
-        height: auto;
-        font-size: 1rem;
-        width: 100%;
-        padding: 0.5rem;
-    }
-
-    .inputLabel {
-        display: inline-block;
-        vertical-align: middle;
-    }
-
     .leftsidebar {
         width: 33vw;
 
-        > h2 {
+        > * {
             width: 100%;
             margin: 0;
+
+            > button {
+                height: 1rem;
+                text-align: center;
+                line-height: 0rem;
+                border-radius: 10px;
+                border: solid 3px #ccc;
+            }
         }
+
+        .inputLabel {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+
     }
 
     .smallBtnCtn > * {
@@ -73,12 +76,28 @@ button {
         padding-right: 1rem;
     }
 
+    .smallTextCtn {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
     .textInput {
         height: auto;
         font-size: 1.4rem;
-        width: 10vw;
         vertical-align: middle;
         padding-left: 0.25rem;
+    }
+
+    .codeInput {
+        height: auto;
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .textInput,
+    .codeInput {
+        width: 90%;
+        margin: auto;
     }
 }
 
