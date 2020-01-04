@@ -42,6 +42,10 @@ export const deleteEventListenerByCategory = (category) => {
     categoryEvents.forEach(el => document.getElementById(el.elementID).deleteEventListener(el.eventListenerID));
 }
 
+function alphabetizeString(string) {
+    return string.split(' ').sort().join(' ');
+}
+
 function getEventListenerByHash(element, hashkey) {
     return getElementEventListeners(element).filter(
         el => el.eventListenerID === hashkey,
