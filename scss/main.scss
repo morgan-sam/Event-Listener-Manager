@@ -91,9 +91,12 @@ button {
         padding: 0.5rem;
     }
 
-    .textInput,
-    .codeInput {
+    .textInput {
         width: 90%;
+        margin: auto;
+    }
+    .codeInput {
+        width: 30vw;
         margin: auto;
     }
 }
@@ -135,9 +138,10 @@ button {
 
 .smallBtnCtn {
     > button {
-        height: auto;
+        height: 1rem;
         width: auto;
         padding: 1rem;
+        line-height: 0;
     }
 }
 
@@ -146,9 +150,23 @@ button {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     button {
-        width: 9rem;
+        width: 4rem;
         margin: 0 auto;
     }
+}
+
+.verticalBtns {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    button {
+        width: 8rem;
+        margin: 0.3rem auto;
+    }
+}
+
+h4 {
+    display: inline-block;
 }
 
 .smallContainer {
@@ -179,7 +197,7 @@ button {
     flex: 0 1 auto;
     align-self: auto;
     z-index: 1;
-    padding: 3rem;
+    padding: 1rem;
     padding-right: 0;
     height: auto;
     width: auto;
@@ -193,6 +211,10 @@ button {
         min-width: auto;
         min-height: auto;
         font-size: 1rem;
+    }
+
+    .verticalCentreColumn {
+        display: flex;
     }
 }
 
@@ -214,4 +236,18 @@ button {
         width: 100%;
         text-overflow: ellipsis;
     }
+}
+.demoScreenTwo .eventListenerInfo {
+    width: 40vw;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+
+    > p {
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow-y: scroll;
+    }
+    height: 11.7rem;
+    max-height: 11.7rem;
 }

@@ -64,9 +64,12 @@ button {
   font-size: 1rem;
   padding: 0.5rem; }
 
-.demoScreenTwo .textInput,
-.demoScreenTwo .codeInput {
+.demoScreenTwo .textInput {
   width: 90%;
+  margin: auto; }
+
+.demoScreenTwo .codeInput {
+  width: 30vw;
   margin: auto; }
 
 .demoScreenOne,
@@ -99,17 +102,29 @@ button {
   justify-content: center; }
 
 .smallBtnCtn > button {
-  height: auto;
+  height: 1rem;
   width: auto;
-  padding: 1rem; }
+  padding: 1rem;
+  line-height: 0; }
 
 .horizontalBtns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr; }
   .horizontalBtns button {
-    width: 9rem;
+    width: 4rem;
     margin: 0 auto; }
+
+.verticalBtns {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr); }
+  .verticalBtns button {
+    width: 8rem;
+    margin: 0.3rem auto; }
+
+h4 {
+  display: inline-block; }
 
 .smallContainer {
   border: #ccc dotted 2px;
@@ -134,7 +149,7 @@ button {
   flex: 0 1 auto;
   align-self: auto;
   z-index: 1;
-  padding: 3rem;
+  padding: 1rem;
   padding-right: 0;
   height: auto;
   width: auto; }
@@ -145,6 +160,8 @@ button {
     min-width: auto;
     min-height: auto;
     font-size: 1rem; }
+  .barcolumn .verticalCentreColumn {
+    display: flex; }
 
 .assignmentOptions > button {
   height: auto; }
@@ -160,3 +177,15 @@ button {
   .eventListenerInfo > p {
     width: 100%;
     text-overflow: ellipsis; }
+
+.demoScreenTwo .eventListenerInfo {
+  width: 40vw;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 11.7rem;
+  max-height: 11.7rem; }
+  .demoScreenTwo .eventListenerInfo > p {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow-y: scroll; }
