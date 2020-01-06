@@ -265,15 +265,50 @@
                         <div class="smallTextCtn">
                             <h2>Removing Event Listeners</h2>
                         </div>
-
-                        <div class="smallBtnCtn">
-                            <button
-                                id="removeEventListenerByHashBtn"
-                                type="button"
-                                class="demoTwoCodeButtons"
+                        <div class="smallTextCtn">
+                            <select
+                                id="removeEventListenerFunctionSelection"
+                                name="removeEventListenerFunction"
                             >
-                                Remove Event Listener Function By Hash
-                            </button>
+                                <option value="removeByHashInstructions"
+                                    >Remove Event Listener From Element By
+                                    Hash</option
+                                >
+                                <option value="removeByElementInstructions"
+                                    >Remove All Event Listeners On
+                                    Element</option
+                                >
+                                <option value="removeByCategoryInstructions"
+                                    >Remove Event Listeners By Category</option
+                                >
+                                <option value="removeAllInstructions"
+                                    >Remove All Document Event Listeners</option
+                                >
+                            </select>
+                        </div>
+                        <div
+                            id="removeByHashInstructions"
+                            class="removeInstructionSelection"
+                        >
+                            Remove Event Listener From Element
+                        </div>
+                        <div
+                            id="removeByElementInstructions"
+                            class="removeInstructionSelection"
+                        >
+                            Remove All Event Listeners From Element
+                        </div>
+                        <div
+                            id="removeByCategoryInstructions"
+                            class="removeInstructionSelection"
+                        >
+                            Remove Event Listeners By Category
+                        </div>
+                        <div
+                            id="removeAllInstructions"
+                            class="removeInstructionSelection"
+                        >
+                            Remove All Document Event Listeners
                         </div>
                     </div>
                 </div>

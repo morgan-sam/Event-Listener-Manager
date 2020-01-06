@@ -215,3 +215,9 @@ h4 {
       height: 8rem;
       text-overflow: ellipsis;
       overflow-y: scroll; }
+
+.removeInstructionSelection {
+  display: none; }
+
+.active {
+  display: block; }
