@@ -46,7 +46,6 @@ export const createEventListener = (
                 el.deleteEventListener(evnList.eventListenerID),
             );
         };
-        console.log(eventListenerStorage);
         return randID;
     }
 };
@@ -83,13 +82,6 @@ export const deleteDocumentEventListeners = () => {
             .deleteEventListener(el.eventListenerID),
     );
 };
-
-function alphabetizeString(string) {
-    return string
-        .split(' ')
-        .sort()
-        .join(' ');
-}
 
 function getEventListenerByHash(element, hashkey) {
     return getElementEventListeners(element).filter(

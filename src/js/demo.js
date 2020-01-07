@@ -58,13 +58,8 @@ export const demoSelect = () => {
             let elementObj = document.getElementById(element);
             if (elementObj) {
                 try {
-                    let selected_EL_ID = getEventListenerByHash(
-                        element,
-                        hashkey,
-                    ).eventListenerID;
-                    elementObj.deleteEventListener(selected_EL_ID);
+                    elementObj.deleteEventListener(hashkey);
                 } catch (e) {
-                    console.log(e);
                     console.log(`No event listener with hash: ${hashkey}`);
                 }
             }
