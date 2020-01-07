@@ -216,10 +216,12 @@ export const demoSelect = () => {
         });
 
     function showRemoveCodeInstructions(selection) {
-        let elements = document.querySelectorAll('.removeInstructionSelection');
+        let elements = document.querySelectorAll(
+            '.removeByHashInstructions,.removeByElementInstructions,.removeByCategoryInstructions,.removeAllInstructions',
+        );
         elements.forEach(el => el.classList.remove('active'));
-        let selectedElement = document.getElementById(selection);
-        selectedElement.classList.add('active');
+        let selectedElements = document.querySelectorAll(`.${selection}`);
+        selectedElements.forEach(el => el.classList.add('active'));
     }
 
     function getTextValue() {

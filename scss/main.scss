@@ -99,6 +99,12 @@ button {
         width: 30vw;
         margin: auto;
     }
+
+    .dropDownSelection {
+        font-size: 1.4rem;
+        display: block;
+        width: 15rem;
+    }
 }
 
 .demoScreenOne,
@@ -288,7 +294,7 @@ h4 {
     }
 }
 
-.removeInstructionSelection {
+.removeByHashInstructions {
     display: none;
 }
 .active {

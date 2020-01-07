@@ -72,6 +72,11 @@ button {
   width: 30vw;
   margin: auto; }
 
+.demoScreenTwo .dropDownSelection {
+  font-size: 1.4rem;
+  display: block;
+  width: 15rem; }
+
 .demoScreenOne,
 .demoScreenTwo {
   display: none; }
@@ -216,7 +221,7 @@ h4 {
       text-overflow: ellipsis;
       overflow-y: scroll; }
 
-.removeInstructionSelection {
+.removeByHashInstructions {
   display: none; }
 
 .active {
