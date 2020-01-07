@@ -130,76 +130,66 @@ export const demoSelect = () => {
             );
         });
 
+    let regexList = [
+        /elementID|btnA|btnB|btnC/g,
+        /eventType|click|mouseover/g,
+        /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
+        /eventCategory|Greeting|Message/g,
+    ];
+
+    function assignValueToCodeInput(inputValue) {
+        let string = getInputValue();
+        regexList.forEach(regex => {
+            if (regex.test(inputValue)) {
+                string = string.replace(regex, inputValue);
+            }
+        });
+        addTextToCode(string);
+    }
+
     document.getElementById('assignBtnA').addEventListener('click', function() {
-        let string = getInputValue();
-        string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnA');
-        addTextToCode(string);
+        assignValueToCodeInput('btnA');
     });
+
     document.getElementById('assignBtnB').addEventListener('click', function() {
-        let string = getInputValue();
-        string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnB');
-        addTextToCode(string);
+        assignValueToCodeInput('btnB');
     });
+
     document.getElementById('assignBtnC').addEventListener('click', function() {
-        let string = getInputValue();
-        string = string.replace(/elementID|btnA|btnB|btnC/g, 'btnC');
-        addTextToCode(string);
+        assignValueToCodeInput('btnC');
     });
+
     document
         .getElementById('assignEventTypeClick')
         .addEventListener('click', function() {
-            let string = getInputValue();
-            string = string.replace(/eventType|click|mouseover/g, 'click');
-            addTextToCode(string);
+            assignValueToCodeInput('click');
         });
     document
         .getElementById('assignEventTypeMouseover')
         .addEventListener('click', function() {
-            let string = getInputValue();
-            string = string.replace(/eventType|click|mouseover/g, 'mouseover');
-            addTextToCode(string);
+            assignValueToCodeInput('mouseover');
         });
     document
         .getElementById('assignAlertEvent')
         .addEventListener('click', function() {
-            let string = getInputValue();
-            string = string.replace(
-                /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
-                `() => alert("${getTextValue()}")`,
-            );
-            addTextToCode(string);
+            assignValueToCodeInput(`() => alert("${getTextValue()}")`);
         });
 
     document
         .getElementById('assignConsoleLogEvent')
         .addEventListener('click', function() {
-            let string = getInputValue();
-            string = string.replace(
-                /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
-                `() => console.log("${getTextValue()}")`,
-            );
-            addTextToCode(string);
+            assignValueToCodeInput(`() => console.log("${getTextValue()}")`);
         });
     document
         .getElementById('assignCategoryGreeting')
         .addEventListener('click', function() {
-            let string = getInputValue();
-            string = string.replace(
-                /eventCategory|Greeting|Message/g,
-                'Greeting',
-            );
-            addTextToCode(string);
+            assignValueToCodeInput('Greeting');
         });
 
     document
         .getElementById('assignCategoryMessage')
         .addEventListener('click', function() {
-            let string = getInputValue();
-            string = string.replace(
-                /eventCategory|Greeting|Message/g,
-                'Message',
-            );
-            addTextToCode(string);
+            assignValueToCodeInput('Message');
         });
 
     document.getElementById('runCodeBtn').addEventListener('click', function() {
