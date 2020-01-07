@@ -137,8 +137,10 @@ export const demoSelect = () => {
         /eventCategory|Greeting|Message/g,
     ];
 
-    function assignValueToCodeInput(inputValue) {
-        let string = getInputValue();
+    function assignValueToCodeInput(evt) {
+        let inputValue = evt.target.value;
+        inputValue = inputValue.replace('text_value', getTextValue());
+        let string = getCodeValue();
         regexList.forEach(regex => {
             if (regex.test(inputValue)) {
                 string = string.replace(regex, inputValue);
@@ -147,53 +149,17 @@ export const demoSelect = () => {
         addTextToCode(string);
     }
 
-    document.getElementById('assignBtnA').addEventListener('click', function() {
-        assignValueToCodeInput('btnA');
-    });
-
-    document.getElementById('assignBtnB').addEventListener('click', function() {
-        assignValueToCodeInput('btnB');
-    });
-
-    document.getElementById('assignBtnC').addEventListener('click', function() {
-        assignValueToCodeInput('btnC');
-    });
-
-    document
-        .getElementById('assignEventTypeClick')
-        .addEventListener('click', function() {
-            assignValueToCodeInput('click');
+    (function initELsOnAssignmentButtons() {
+        let selectedElements = document.querySelectorAll(`.assignmentButton`);
+        selectedElements.forEach(btn => {
+            document
+                .getElementById(btn.id)
+                .addEventListener('click', assignValueToCodeInput);
         });
-    document
-        .getElementById('assignEventTypeMouseover')
-        .addEventListener('click', function() {
-            assignValueToCodeInput('mouseover');
-        });
-    document
-        .getElementById('assignAlertEvent')
-        .addEventListener('click', function() {
-            assignValueToCodeInput(`() => alert("${getTextValue()}")`);
-        });
-
-    document
-        .getElementById('assignConsoleLogEvent')
-        .addEventListener('click', function() {
-            assignValueToCodeInput(`() => console.log("${getTextValue()}")`);
-        });
-    document
-        .getElementById('assignCategoryGreeting')
-        .addEventListener('click', function() {
-            assignValueToCodeInput('Greeting');
-        });
-
-    document
-        .getElementById('assignCategoryMessage')
-        .addEventListener('click', function() {
-            assignValueToCodeInput('Message');
-        });
+    })();
 
     document.getElementById('runCodeBtn').addEventListener('click', function() {
-        let code = getInputValue();
+        let code = getCodeValue();
         let createEventListener = elf.createEventListener;
         eval(code);
         updateEventListenerInfo();
@@ -218,7 +184,7 @@ export const demoSelect = () => {
         return document.getElementById('textInput').value;
     }
 
-    function getInputValue() {
+    function getCodeValue() {
         return document.getElementById('codeInput').value;
     }
 
