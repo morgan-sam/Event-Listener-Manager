@@ -131,7 +131,7 @@ export const demoSelect = () => {
         });
 
     let regexAssignList = [
-        /hashkey/g,
+        /hashkey|cw909talj1g|8r06u7ekoba|x6q8vpe3yub|hc07goes6wf|u7apseh6nto|t9p94g4921a|m5fmr4pt3l/g,
         /elementID|btnA|btnB|btnC/g,
         /eventType|click|mouseover/g,
         /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
@@ -185,28 +185,51 @@ export const demoSelect = () => {
     })();
 
     function updateHashDropdownList() {
-        let eventListeners = elf.getEventListenerList();
-        let eventListenerIDs = [];
+        getRegexListHashkeys();
+        let newListIDs = getListOfEventListenerIDs();
+        // console.log(newListIDs);
+
         let dropdown = document.getElementById('selectHashDropdown');
-        eventListeners.forEach(el => eventListenerIDs.push(el.eventListenerID));
         dropdown.innerHTML = `<option value='hashkey'>Select Hashkey</option>`;
-        eventListenerIDs.forEach(
+        newListIDs.forEach(
             hash =>
                 (dropdown.innerHTML += `<option value='${hash}'>${hash}</option>`),
         );
-        updateHashRegexList(eventListenerIDs);
-        console.log(regexAssignList);
     }
 
-    function updateHashRegexList(eventListenerIDs) {
-        regexAssignList = regexAssignList.map(function(regexListItem) {
-            if (/hashkey/g.test(regexListItem)) {
-                let regexString = 'hashkey';
-                eventListenerIDs.forEach(hash => (regexString += `|${hash}`));
-                regexListItem = new RegExp(regexString);
-            }
-            return regexListItem;
-        });
+    function getRegexListHashkeys() {
+        let regexHashList = regexAssignList
+            .filter(function(regexListItem) {
+                if (/hashkey/g.test(regexListItem)) {
+                    return regexListItem;
+                }
+            })
+            .toString();
+        let hashKeyArray = regexHashList.match(
+            /(?!g)(?!(hashkey))\b[^)|/]+\b/g,
+        );
+        return hashKeyArray;
+    }
+
+    // function addToHashRegexList(addHashKey) {
+    //     regexAssignList = regexAssignList.map(function(regexListItem) {
+    //         if (/hashkey/g.test(regexListItem)) {
+    //             console.log(addHashKey);
+    //             regexListItem = new RegExp(`regexListItem|${addHashKey}`);
+    //         }
+    //         return regexListItem;
+    //     });
+    // }
+
+    function compareHashKeyList() {
+        //
+    }
+
+    function getListOfEventListenerIDs() {
+        let eventListenerIDs = [];
+        let newList = elf.getEventListenerList();
+        newList.forEach(el => eventListenerIDs.push(el.eventListenerID));
+        return eventListenerIDs;
     }
 
     document.getElementById('runCodeBtn').addEventListener('click', function() {
