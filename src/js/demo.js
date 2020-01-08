@@ -124,8 +124,14 @@ export const demoSelect = () => {
                 `createEventListener('elementID','eventType',eventFunction,'eventCategory')`,
             );
         });
+    document
+        .getElementById('codeElementIDCallBtn')
+        .addEventListener('click', function() {
+            addTextToCode(`document.getElementById('elementID')`);
+        });
 
-    let regexList = [
+    let regexAssignList = [
+        /hashkey/g,
         /elementID|btnA|btnB|btnC/g,
         /eventType|click|mouseover/g,
         /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
@@ -136,12 +142,28 @@ export const demoSelect = () => {
         let inputValue = evt.target.value;
         inputValue = inputValue.replace('text_value', getTextValue());
         let string = getCodeValue();
-        regexList.forEach(regex => {
+        regexAssignList.forEach(regex => {
             if (regex.test(inputValue)) {
                 string = string.replace(regex, inputValue);
             }
         });
         addTextToCode(string);
+    }
+
+    function addFunctionToInput() {
+        let codeInput = getCodeValue();
+        let regexFuncList = [
+            {
+                rgx: /^document.getElementById\(\'[^)]+\'\)$/g,
+                func: `.deleteEventListener('hashkey')`,
+            },
+        ];
+        regexFuncList.forEach(regex => {
+            if (regex.rgx.test(codeInput)) {
+                codeInput += regex.func;
+            }
+        });
+        addTextToCode(codeInput);
     }
 
     (function initELsOnAssignmentButtons() {
@@ -153,11 +175,46 @@ export const demoSelect = () => {
         });
     })();
 
+    (function initELsOnAddFuncButtons() {
+        let selectedElements = document.querySelectorAll(`.addFuncButton`);
+        selectedElements.forEach(btn => {
+            document
+                .getElementById(btn.id)
+                .addEventListener('click', addFunctionToInput);
+        });
+    })();
+
+    function updateHashDropdownList() {
+        let eventListeners = elf.getEventListenerList();
+        let eventListenerIDs = [];
+        let dropdown = document.getElementById('selectHashDropdown');
+        eventListeners.forEach(el => eventListenerIDs.push(el.eventListenerID));
+        dropdown.innerHTML = `<option value='hashkey'>Select Hashkey</option>`;
+        eventListenerIDs.forEach(
+            hash =>
+                (dropdown.innerHTML += `<option value='${hash}'>${hash}</option>`),
+        );
+        updateHashRegexList(eventListenerIDs);
+        console.log(regexAssignList);
+    }
+
+    function updateHashRegexList(eventListenerIDs) {
+        regexAssignList = regexAssignList.map(function(regexListItem) {
+            if (/hashkey/g.test(regexListItem)) {
+                let regexString = 'hashkey';
+                eventListenerIDs.forEach(hash => (regexString += `|${hash}`));
+                regexListItem = new RegExp(regexString);
+            }
+            return regexListItem;
+        });
+    }
+
     document.getElementById('runCodeBtn').addEventListener('click', function() {
         let code = getCodeValue();
         let createEventListener = elf.createEventListener;
         eval(code);
         updateEventListenerInfo();
+        updateHashDropdownList();
     });
 
     document

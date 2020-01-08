@@ -6,7 +6,7 @@ import * as intervals from './intervals.js';
 let eventListenerStorage = [];
 
 //createEventListener allows you to create event listeners similar to how you would using addEventListener.
-//cEL() has the same event type & function parameters, but differs in it not being attached to the element and instead requiring you to specify the id of the element to create the event listeners for. It also allows you to specify categories of event listeners tha work similar to CSS classes, for easier grouping.
+//cEL() has the same event type & function parameters, but differs in it not being attached to the element and instead requiring you to specify the id of the element to create the event listeners for. It also allows you to specify categories of event listeners that work similar to CSS classes, for easier grouping.
 
 //Two functions are attached to the element on calling createEventListener: deleteEventListener & deleteAllEventListener. i.e: document.getElementById(elementID).deleteAllEventListeners();
 
@@ -54,11 +54,11 @@ export const createEventListener = (
 //Categories work in the same way as CSS classes.
 //If called with a single category, it will remove only those with that category.
 //If called multiple categories it will remove all events only with all specified categories, irrespective of order.
-//An EL with the categories 'main btn nav' will be removed if dELBC() is called with any of the following categories: 'main', 'nav', 'btn', 'main btn', 'btn nav', 'main nav', or 'main btn nav'. The order of each can be changed as long as each seperate word is present.
+//An EL with the categories 'main btn nav' will be removed if dELBC() is called with any of the following category arguments: 'main', 'nav', 'btn', 'main btn', 'btn nav', 'main nav', or 'main btn nav'. The order of each can be changed as long as each seperate word is present.
 
 export const deleteEventListenerByCategory = category => {
-    let categories = category.split(' ');
     let regexString;
+    let categories = category.split(' ');
     let categoryEvents = eventListenerStorage.filter(el => {
         for (let i = 0; i < categories.length; i++) {
             regexString = `((?! ))(\\b${categories[i]}\\b)`;
