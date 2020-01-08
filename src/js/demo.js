@@ -1,7 +1,5 @@
 import * as elf from './index.js';
 
-import './index.js';
-
 export const demoSelect = () => {
     document.getElementById('demoOneBtn').addEventListener('click', function() {
         //add demo one class
@@ -117,19 +115,6 @@ export const demoSelect = () => {
 })();
 
 (function initDemoTwo() {
-    document
-        .getElementById('codeNewEventListenerBtn')
-        .addEventListener('click', function() {
-            addTextToCode(
-                `createEventListener('elementID','eventType',eventFunction,'eventCategory')`,
-            );
-        });
-    document
-        .getElementById('codeElementIDCallBtn')
-        .addEventListener('click', function() {
-            addTextToCode(`document.getElementById('elementID')`);
-        });
-
     let regexAssignList = [
         /hashkey|cw909talj1g|8r06u7ekoba|x6q8vpe3yub|hc07goes6wf|u7apseh6nto|t9p94g4921a|m5fmr4pt3l/g,
         /elementID|btnA|btnB|btnC/g,
@@ -166,6 +151,11 @@ export const demoSelect = () => {
         addTextToCode(codeInput);
     }
 
+    function initCodeFunction(evt) {
+        let inputValue = evt.target.value;
+        addTextToCode(inputValue);
+    }
+
     (function initELsOnAssignmentButtons() {
         let selectedElements = document.querySelectorAll(`.assignmentButton`);
         selectedElements.forEach(btn => {
@@ -181,6 +171,15 @@ export const demoSelect = () => {
             document
                 .getElementById(btn.id)
                 .addEventListener('click', addFunctionToInput);
+        });
+    })();
+
+    (function initELsOnInitFuncButtons() {
+        let selectedElements = document.querySelectorAll(`.initCodeFuncButton`);
+        selectedElements.forEach(btn => {
+            document
+                .getElementById(btn.id)
+                .addEventListener('click', initCodeFunction);
         });
     })();
 
@@ -235,6 +234,8 @@ export const demoSelect = () => {
     document.getElementById('runCodeBtn').addEventListener('click', function() {
         let code = getCodeValue();
         let createEventListener = elf.createEventListener;
+        let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
+        let deleteDocumentEventListeners = elf.deleteDocumentEventListeners;
         eval(code);
         updateEventListenerInfo();
         updateHashDropdownList();

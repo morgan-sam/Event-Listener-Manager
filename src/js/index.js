@@ -1,7 +1,6 @@
 import '../css/main.css';
 
 import * as demo from './demo.js';
-import * as intervals from './intervals.js';
 
 let eventListenerStorage = [];
 
