@@ -113,10 +113,10 @@ export const demoSelect = () => {
         );
     }
 })();
-
+//|cw909talj1g|8r06u7ekoba|x6q8vpe3yub|hc07goes6wf|u7apseh6nto|t9p94g4921a|m5fmr4pt3l
 (function initDemoTwo() {
     let regexAssignList = [
-        /hashkey|cw909talj1g|8r06u7ekoba|x6q8vpe3yub|hc07goes6wf|u7apseh6nto|t9p94g4921a|m5fmr4pt3l/g,
+        /hashkey/g,
         /elementID|btnA|btnB|btnC/g,
         /eventType|click|mouseover/g,
         /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
@@ -168,10 +168,7 @@ export const demoSelect = () => {
     })();
 
     function updateHashDropdownList() {
-        getRegexListHashkeys();
         let newListIDs = getListOfEventListenerIDs();
-        // console.log(newListIDs);
-
         let dropdown = document.getElementById('selectHashDropdown');
         dropdown.innerHTML = `<option value='hashkey'>Select Hashkey</option>`;
         newListIDs.forEach(
@@ -194,18 +191,26 @@ export const demoSelect = () => {
         return hashKeyArray;
     }
 
-    // function addToHashRegexList(addHashKey) {
-    //     regexAssignList = regexAssignList.map(function(regexListItem) {
-    //         if (/hashkey/g.test(regexListItem)) {
-    //             console.log(addHashKey);
-    //             regexListItem = new RegExp(`regexListItem|${addHashKey}`);
-    //         }
-    //         return regexListItem;
-    //     });
-    // }
+    function addToHashRegexList(addHashKey) {
+        regexAssignList = regexAssignList.map(function(regexListItem) {
+            if (/hashkey/g.test(regexListItem)) {
+                regexListItem = new RegExp(`${regexListItem}|${addHashKey}`);
+            }
+            return regexListItem;
+        });
+    }
 
-    function compareHashKeyList() {
-        //
+    function updateHashList() {
+        let regexList = getRegexListHashkeys();
+        let stringList = JSON.stringify(regexList);
+        let htmlSelectList = getListOfEventListenerIDs();
+        let regex;
+        htmlSelectList.forEach(function(htmlListItem) {
+            regex = new RegExp(`${htmlListItem}`);
+            if (!regex.test(stringList)) {
+                addToHashRegexList(htmlListItem);
+            }
+        });
     }
 
     function getListOfEventListenerIDs() {
@@ -223,6 +228,7 @@ export const demoSelect = () => {
         eval(code);
         updateEventListenerInfo();
         updateHashDropdownList();
+        updateHashList();
     });
 
     document
