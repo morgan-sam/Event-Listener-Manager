@@ -132,28 +132,21 @@ export const demoSelect = () => {
                 string = string.replace(regex, inputValue);
             }
         });
-        addTextToCode(string);
+        setCodeInputText(string);
     }
 
-    function addFunctionToInput() {
+    function addFunctionToCodeInput(evt) {
         let codeInput = getCodeValue();
-        let regexFuncList = [
-            {
-                rgx: /^document.getElementById\(\'[^)]+\'\)$/g,
-                func: `.deleteEventListener('hashkey')`,
-            },
-        ];
-        regexFuncList.forEach(regex => {
-            if (regex.rgx.test(codeInput)) {
-                codeInput += regex.func;
-            }
-        });
-        addTextToCode(codeInput);
-    }
-
-    function initCodeFunction(evt) {
         let inputValue = evt.target.value;
-        addTextToCode(inputValue);
+        if (inputValue.match(/^\./g)) {
+            if (codeInput.match(/^document.getElementById\(\'[^)]+\'\)$/g)) {
+                setCodeInputText(`${codeInput}${inputValue}`);
+            } else {
+                return null;
+            }
+        } else {
+            setCodeInputText(inputValue);
+        }
     }
 
     (function initELsOnAssignmentButtons() {
@@ -166,20 +159,11 @@ export const demoSelect = () => {
     })();
 
     (function initELsOnAddFuncButtons() {
-        let selectedElements = document.querySelectorAll(`.addFuncButton`);
+        let selectedElements = document.querySelectorAll(`.addCodeFuncButton`);
         selectedElements.forEach(btn => {
             document
                 .getElementById(btn.id)
-                .addEventListener('click', addFunctionToInput);
-        });
-    })();
-
-    (function initELsOnInitFuncButtons() {
-        let selectedElements = document.querySelectorAll(`.initCodeFuncButton`);
-        selectedElements.forEach(btn => {
-            document
-                .getElementById(btn.id)
-                .addEventListener('click', initCodeFunction);
+                .addEventListener('click', addFunctionToCodeInput);
         });
     })();
 
@@ -264,7 +248,7 @@ export const demoSelect = () => {
         return document.getElementById('codeInput').value;
     }
 
-    function addTextToCode(string) {
+    function setCodeInputText(string) {
         document.getElementById('codeInput').value = string;
     }
 
