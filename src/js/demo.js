@@ -194,7 +194,10 @@ export const demoSelect = () => {
     function addToHashRegexList(addHashKey) {
         regexAssignList = regexAssignList.map(function(regexListItem) {
             if (/hashkey/g.test(regexListItem)) {
-                regexListItem = new RegExp(`${regexListItem}|${addHashKey}`);
+                let itemPlainText = regexListItem
+                    .toString()
+                    .replace(/(?:\b[\/g]+\b|[\/+])/g, '');
+                regexListItem = new RegExp(`${itemPlainText}|${addHashKey}`);
             }
             return regexListItem;
         });
