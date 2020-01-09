@@ -107,10 +107,9 @@ export const demoSelect = () => {
     function updateEventListenerInfo() {
         document.getElementById(
             'demoOneEventListenerInfo',
-        ).innerHTML = JSON.stringify(elf.getEventListenerList()).replace(
-            /},{/g,
-            '}<br>{',
-        );
+        ).innerHTML = JSON.stringify(elf.getEventListenerList())
+            .replace(/},{/g, '}<br>{')
+            .replace(/(?:\[|\])/g, '');
     }
 })();
 //|cw909talj1g|8r06u7ekoba|x6q8vpe3yub|hc07goes6wf|u7apseh6nto|t9p94g4921a|m5fmr4pt3l
@@ -264,9 +263,8 @@ export const demoSelect = () => {
     function updateEventListenerInfo() {
         document.getElementById(
             'demoTwoEventListenerInfo',
-        ).innerHTML = JSON.stringify(elf.getEventListenerList()).replace(
-            /},{/g,
-            '}<br>{',
-        );
+        ).innerHTML = JSON.stringify(elf.getEventListenerList())
+            .replace(/},{/g, '}<br>{')
+            .replace(/(?:\[|\])/g, '');
     }
 })();
