@@ -221,6 +221,26 @@ h4 {
       text-overflow: ellipsis;
       overflow-y: scroll; }
 
+.tableContainer {
+  height: 8rem;
+  width: 25rem;
+  text-align: center; }
+  .tableContainer th,
+  .tableContainer td {
+    width: 10rem;
+    white-space: nowrap; }
+
+.tableHead,
+.tableBody {
+  display: block;
+  text-align: center; }
+
+.tableBody {
+  height: 6.5rem;
+  overflow-y: scroll;
+  width: auto;
+  overflow-x: hidden; }
+
 .removeByHashInstructions,
 .removeByElementInstructions,
 .removeByCategoryInstructions,

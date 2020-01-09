@@ -222,7 +222,37 @@ export const demoSelect = () => {
         return eventListenerIDs;
     }
 
+    function getAllActiveCategories() {
+        let eventListeners = elf.getEventListenerList();
+        let eventListenerCategories = [
+            ...new Set(
+                eventListeners.map(function(el) {
+                    return el.eventCategory;
+                }),
+            ),
+        ];
+        return eventListenerCategories;
+    }
+
+    function updateCategoryCheckboxes() {
+        //
+    }
+
+    function addNewCategoryToTable() {
+        let category, removeCheckbox, andOperator;
+        let table = document
+            .querySelector('.categoryTable')
+            .querySelector('.tableBody');
+        table.innerHTML += `
+        <tr>
+            <td>${category}</td>
+            <td>${removeCheckbox}</td>
+            <td>${andOperator}</td>
+        </tr>`;
+    }
+
     document.getElementById('runCodeBtn').addEventListener('click', function() {
+        addNewCategoryToTable();
         let code = getCodeValue();
         let createEventListener = elf.createEventListener;
         let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
@@ -231,6 +261,7 @@ export const demoSelect = () => {
         updateEventListenerInfo();
         updateHashDropdownList();
         updateHashList();
+        updateCategoryCheckboxes();
     });
 
     document

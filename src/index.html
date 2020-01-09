@@ -365,12 +365,18 @@
                                 2: Enter categories to delete (seperated by
                                 spaces):
                             </h3>
-                            <input
-                                type="text"
-                                id="categoryInput"
-                                name="text"
-                                class="textInput"
-                            />
+                            <div class="tableContainer">
+                                <table class="categoryTable">
+                                    <thead class="tableHead">
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Remove</th>
+                                            <th>AND Operator</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tableBody"></tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="smallBtnCtn removeByHashInstructions">
                             <h4>3:</h4>
