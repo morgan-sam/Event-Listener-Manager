@@ -234,25 +234,46 @@ export const demoSelect = () => {
         return eventListenerCategories;
     }
 
-    function updateCategoryCheckboxes() {
-        //
+    function updateCategoryTable() {
+        document
+            .querySelector('.categoryTable')
+            .querySelector('.tableBody').innerHTML = '';
+        let categories = getAllActiveCategories();
+        categories.forEach(el => addNewCategoryToTable(el));
     }
 
-    function addNewCategoryToTable() {
-        let category, removeCheckbox, andOperator;
+    function addNewCategoryToTable(category) {
+        let removeCheckbox, andOperator;
         let table = document
             .querySelector('.categoryTable')
             .querySelector('.tableBody');
+        // <tr class='tableCategory:${category}'>
         table.innerHTML += `
         <tr>
             <td>${category}</td>
-            <td>${removeCheckbox}</td>
-            <td>${andOperator}</td>
+            <td><input type="checkbox" class="removeCheckbox"></td>
+            <td><input type="checkbox" class="andOpCheckbox"></td>
         </tr>`;
     }
 
+    function convertTableHtmlToObj() {
+        let table = document
+            .querySelector('.categoryTable')
+            .querySelector('.tableBody');
+        let categoryObjectArray = [];
+        for (let i = 0; i < table.rows.length; i++) {
+            let tableRow = table.rows[i];
+            let catObj = {};
+            catObj['category'] = tableRow.cells[0].innerHTML;
+            catObj['removeValue'] = tableRow.cells[1].firstChild.checked;
+            catObj['andValue'] = tableRow.cells[2].firstChild.checked;
+            categoryObjectArray.push(catObj);
+        }
+        console.log(categoryObjectArray);
+        return categoryObjectArray;
+    }
+
     document.getElementById('runCodeBtn').addEventListener('click', function() {
-        addNewCategoryToTable();
         let code = getCodeValue();
         let createEventListener = elf.createEventListener;
         let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
@@ -261,7 +282,7 @@ export const demoSelect = () => {
         updateEventListenerInfo();
         updateHashDropdownList();
         updateHashList();
-        updateCategoryCheckboxes();
+        updateCategoryTable();
     });
 
     document
