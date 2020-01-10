@@ -222,6 +222,8 @@ export const demoSelect = () => {
         return eventListenerIDs;
     }
 
+    //Need to convert multiple category items down into individual categories
+    //For instance 'message greeting alert' as a category must be stored as an array of length 3, not a single string
     function getAllActiveCategories() {
         let eventListeners = elf.getEventListenerList();
         let eventListenerCategories = [

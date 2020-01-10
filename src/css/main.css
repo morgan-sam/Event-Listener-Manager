@@ -50,7 +50,7 @@ button {
   padding-right: 1rem; }
 
 .demoScreenTwo .smallTextCtn {
-  margin-top: 1rem;
+  margin-top: 1.4rem;
   margin-bottom: 1rem; }
 
 .demoScreenTwo .textInput {
@@ -110,12 +110,12 @@ button {
   line-height: 0; }
 
 .horizontalBtns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr; }
+  padding: 1rem; }
   .horizontalBtns button {
-    width: 4rem;
-    margin: 0 auto; }
+    width: 8rem;
+    margin: 0 auto;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem; }
 
 .verticalBtns {
   display: flex;
@@ -177,14 +177,12 @@ h4 {
   grid-column-gap: 0px;
   grid-row-gap: 0px; }
   .demoTwoGridContainer :nth-child(1) {
-    grid-area: 1 / 1 / 2 / 3; }
+    grid-area: 1 / 1 / 2 / 4; }
   .demoTwoGridContainer :nth-child(2) {
-    grid-area: 1 / 3 / 2 / 4; }
+    grid-area: 1 / 3 / 2 / 6; }
   .demoTwoGridContainer :nth-child(3) {
-    grid-area: 1 / 4 / 2 / 6; }
-  .demoTwoGridContainer :nth-child(4) {
     grid-area: 2 / 1 / 4 / 3; }
-  .demoTwoGridContainer :nth-child(5) {
+  .demoTwoGridContainer :nth-child(4) {
     grid-area: 2 / 3 / 4 / 6; }
 
 .eventListenerInfo {
@@ -213,7 +211,7 @@ h4 {
     max-height: 100%;
     box-sizing: border-box; }
     .demoScreenTwo .eventListenerInfo > p {
-      width: 45rem;
+      width: 60rem;
       height: 8rem;
       text-overflow: ellipsis;
       overflow-y: scroll; }
@@ -230,7 +228,7 @@ h4 {
 .tableHead,
 .tableBody {
   display: block;
-  text-align: center; }
+  text-align: left; }
 
 .tableBody {
   height: 6.5rem;
