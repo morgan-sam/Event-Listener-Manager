@@ -299,9 +299,9 @@ export const demoSelect = () => {
     function addCategoriesToCodeText() {
         let categoryInput = convertCategoryObjToString(convertTableHtmlToObj());
         let codeInput = getCodeValue();
-        if (codeInput.match(/^deleteEventListenerByCategory\(\'[^)]+\'\)$/g)) {
+        if (codeInput.match(/^deleteEventListenerByCategory\(\'[^)]*\'\)$/g)) {
             codeInput = codeInput.replace(
-                /\(\'[^)]+\'\)$/g,
+                /\(\'[^)]*\'\)$/g,
                 `('${categoryInput}')`,
             );
             setCodeInputText(codeInput);
