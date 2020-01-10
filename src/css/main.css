@@ -62,7 +62,7 @@ button {
   margin: auto; }
 
 .demoScreenTwo .codeInput,
-.demoScreenTwo .categoryInput {
+.demoScreenTwo .categoryAssignInput {
   height: auto;
   font-size: 1rem;
   padding: 0.5rem;

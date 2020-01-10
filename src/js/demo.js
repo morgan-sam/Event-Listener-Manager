@@ -296,13 +296,28 @@ export const demoSelect = () => {
         return input.replace(regex, '');
     }
 
-    function addCategoriesToCodeText() {
+    function addRemoveCategoriesToCode() {
         let categoryInput = convertCategoryObjToString(convertTableHtmlToObj());
         let codeInput = getCodeValue();
         if (codeInput.match(/^deleteEventListenerByCategory\(\'[^)]*\'\)$/g)) {
             codeInput = codeInput.replace(
                 /\(\'[^)]*\'\)$/g,
                 `('${categoryInput}')`,
+            );
+            setCodeInputText(codeInput);
+        }
+    }
+
+    function assignCategoriesToCode() {
+        let categoryAssign = getCategoryInput();
+        let codeInput = getCodeValue();
+        let regex = new RegExp(
+            /^createEventListener\([^,]*,[^,]*,[^,]*,(\'[^')(]*\')\)$/g,
+        );
+        if (codeInput.match(regex)) {
+            codeInput = codeInput.replace(
+                /(\'[^')(]*\')\)$/g,
+                `'${categoryAssign}')`,
             );
             setCodeInputText(codeInput);
         }
@@ -322,7 +337,11 @@ export const demoSelect = () => {
 
     document
         .getElementById('codeAddCategoriesToFunctionBtn')
-        .addEventListener('click', addCategoriesToCodeText);
+        .addEventListener('click', addRemoveCategoriesToCode);
+
+    document
+        .getElementById('assignCategoryBtn')
+        .addEventListener('click', assignCategoriesToCode);
 
     document
         .getElementById('removeEventListenerFunctionSelection')
@@ -345,6 +364,10 @@ export const demoSelect = () => {
 
     function getCodeValue() {
         return document.getElementById('codeInput').value;
+    }
+
+    function getCategoryInput() {
+        return document.getElementById('categoryAssignInput').value;
     }
 
     function setCodeInputText(string) {
