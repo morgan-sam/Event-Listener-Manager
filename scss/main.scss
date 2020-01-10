@@ -74,8 +74,8 @@ button {
     }
 
     .smallTextCtn {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .textInput {
@@ -83,19 +83,15 @@ button {
         font-size: 1.4rem;
         vertical-align: middle;
         padding-left: 0.25rem;
-    }
-
-    .codeInput {
-        height: auto;
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
-
-    .textInput {
         width: 90%;
         margin: auto;
     }
-    .codeInput {
+
+    .codeInput,
+    .categoryInput {
+        height: auto;
+        font-size: 1rem;
+        padding: 0.5rem;
         width: 30vw;
         margin: auto;
     }

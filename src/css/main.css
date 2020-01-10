@@ -50,25 +50,22 @@ button {
   padding-right: 1rem; }
 
 .demoScreenTwo .smallTextCtn {
-  margin-top: 2rem;
-  margin-bottom: 2rem; }
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
 
 .demoScreenTwo .textInput {
   height: auto;
   font-size: 1.4rem;
   vertical-align: middle;
-  padding-left: 0.25rem; }
-
-.demoScreenTwo .codeInput {
-  height: auto;
-  font-size: 1rem;
-  padding: 0.5rem; }
-
-.demoScreenTwo .textInput {
+  padding-left: 0.25rem;
   width: 90%;
   margin: auto; }
 
-.demoScreenTwo .codeInput {
+.demoScreenTwo .codeInput,
+.demoScreenTwo .categoryInput {
+  height: auto;
+  font-size: 1rem;
+  padding: 0.5rem;
   width: 30vw;
   margin: auto; }
 
