@@ -272,10 +272,38 @@ export const demoSelect = () => {
         return categoryObjectArray;
     }
 
+    function convertCategoryObjToString(obj) {
+        let categoryString;
+        let andString = '';
+        let orString = '';
+        obj.forEach(function(el) {
+            if (el.removeValue) {
+                if (el.andValue) {
+                    andString += `${el.category}.`;
+                } else {
+                    orString += `${el.category} `;
+                }
+            }
+        });
+        andString = formatCatString(andString);
+        orString = formatCatString(orString);
+        categoryString = formatCatString(`${andString} ${orString}`);
+        return categoryString;
+    }
+
+    function formatCatString(input) {
+        let regex = new RegExp(/(^\.|^ )|( $|\.$)/g);
+        return input.replace(regex, '');
+    }
+
     function addCategoriesToCodeText() {
+        let categoryInput = convertCategoryObjToString(convertTableHtmlToObj());
         let codeInput = getCodeValue();
         if (codeInput.match(/^deleteEventListenerByCategory\(\'[^)]+\'\)$/g)) {
-            codeInput = codeInput.replace(/\(\'[^)]+\'\)$/g, `('${input}')`);
+            codeInput = codeInput.replace(
+                /\(\'[^)]+\'\)$/g,
+                `('${categoryInput}')`,
+            );
             setCodeInputText(codeInput);
         }
     }
