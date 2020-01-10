@@ -269,8 +269,15 @@ export const demoSelect = () => {
             catObj['andValue'] = tableRow.cells[2].firstChild.checked;
             categoryObjectArray.push(catObj);
         }
-        console.log(categoryObjectArray);
         return categoryObjectArray;
+    }
+
+    function addCategoriesToCodeText() {
+        let codeInput = getCodeValue();
+        if (codeInput.match(/^deleteEventListenerByCategory\(\'[^)]+\'\)$/g)) {
+            codeInput = codeInput.replace(/\(\'[^)]+\'\)$/g, `('${input}')`);
+            setCodeInputText(codeInput);
+        }
     }
 
     document.getElementById('runCodeBtn').addEventListener('click', function() {
@@ -284,6 +291,10 @@ export const demoSelect = () => {
         updateHashList();
         updateCategoryTable();
     });
+
+    document
+        .getElementById('codeAddCategoriesToFunctionBtn')
+        .addEventListener('click', addCategoriesToCodeText);
 
     document
         .getElementById('removeEventListenerFunctionSelection')
@@ -319,4 +330,5 @@ export const demoSelect = () => {
             .replace(/},{/g, '}<br>{')
             .replace(/(?:\[|\])/g, '');
     }
+    showRemoveCodeInstructions('removeByCategoryInstructions');
 })();
