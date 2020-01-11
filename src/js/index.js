@@ -29,7 +29,7 @@ export const createEventListener = (
             eventType,
             elementFunc,
             eventListenerID: randID,
-            eventCategory: eventCategory ? eventCategory : undefined,
+            eventCategory: eventCategory ? formatEventCategories(eventCategory) : undefined,
         });
         el.addEventListener(eventType, elementFunc);
         el.deleteEventListener = function deleteEventListener(delete_EL_ID) {
@@ -67,8 +67,8 @@ export const deleteEventListenerByCategory = category => {
     });
     categoryEvents.forEach(el =>
         document
-            .getElementById(el.elementID)
-            .deleteEventListener(el.eventListenerID),
+        .getElementById(el.elementID)
+        .deleteEventListener(el.eventListenerID),
     );
 };
 
@@ -77,10 +77,16 @@ export const deleteEventListenerByCategory = category => {
 export const deleteDocumentEventListeners = () => {
     eventListenerStorage.forEach(el =>
         document
-            .getElementById(el.elementID)
-            .deleteEventListener(el.eventListenerID),
+        .getElementById(el.elementID)
+        .deleteEventListener(el.eventListenerID),
     );
 };
+
+function formatEventCategories(eventCategories) {
+    eventCategories = [...new Set(eventCategories.split(/\.|\ /g))];
+    eventCategories = eventCategories.filter(ec => ec !== '').join(' ');
+    return eventCategories;
+}
 
 function getEventListenerByHash(element, hashkey) {
     return getElementEventListeners(element).filter(

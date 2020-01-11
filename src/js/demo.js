@@ -248,7 +248,6 @@ export const demoSelect = () => {
         let table = document
             .querySelector('.categoryTable')
             .querySelector('.tableBody');
-        // <tr class='tableCategory:${category}'>
         table.innerHTML += `
         <tr>
             <td>${category}</td>
