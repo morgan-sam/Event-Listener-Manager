@@ -301,8 +301,9 @@ export const demoSelect = () => {
         groupString = groupString.map(function (el) {
             return formatOutputCatString(el)
         });
-
-        categoryString = groupString.filter(Boolean).join(' ') + removeString;
+        groupString = groupString.filter(ec => ec !== '')
+        categoryString = [groupString.join(' '), removeString];
+        categoryString = categoryString.join(' ');
         return categoryString;
     }
 
