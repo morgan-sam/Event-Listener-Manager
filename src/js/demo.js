@@ -277,24 +277,91 @@ export const demoSelect = () => {
     }
 
     function convertCategoryObjToString(obj) {
-        console.log(obj);
+        //        obj = [{
+        //                category: "1",
+        //                removeValue: true,
+        //                groupOne: true,
+        //                groupTwo: false,
+        //                groupThree: false
+        //            },
+        //            {
+        //                category: "2",
+        //                removeValue: true,
+        //                groupOne: true,
+        //                groupTwo: false,
+        //                groupThree: false
+        //            },
+        //            {
+        //                category: "3",
+        //                removeValue: true,
+        //                groupOne: false,
+        //                groupTwo: true,
+        //                groupThree: false
+        //            },
+        //            {
+        //                category: "4",
+        //                removeValue: true,
+        //                groupOne: false,
+        //                groupTwo: true,
+        //                groupThree: false
+        //            },
+        //            {
+        //                category: "5",
+        //                removeValue: true,
+        //                groupOne: false,
+        //                groupTwo: false,
+        //                groupThree: true
+        //            },
+        //            {
+        //                category: "6",
+        //                removeValue: true,
+        //                groupOne: false,
+        //                groupTwo: false,
+        //                groupThree: true
+        //            },
+        //            {
+        //                category: "7",
+        //                removeValue: true,
+        //                groupOne: false,
+        //                groupTwo: false,
+        //                groupThree: false
+        //            },
+        //            {
+        //                category: "8",
+        //                removeValue: true,
+        //                groupOne: false,
+        //                groupTwo: false,
+        //                groupThree: false
+        //            }]
         let categoryString;
-        let andString = '';
-        let orString = '';
+        let removeString = '';
+        let groupString = ['', '', ''];
         obj.forEach(function (el) {
             if (el.removeValue) {
-                if (el.andValue) {
-                    andString += `${el.category}.`;
+                if (el.groupOne | el.groupTwo | el.groupThree) {
+                    if (el.groupOne) {
+                        groupString[0] += `${el.category}.`;
+                    }
+                    if (el.groupTwo) {
+                        groupString[1] += `${el.category}.`;
+                    }
+                    if (el.groupThree) {
+                        groupString[2] += `${el.category}.`;
+                    }
                 } else {
-                    orString += `${el.category} `;
+                    removeString += `${el.category} `;
                 }
             }
         });
-        andString = formatCatString(andString);
-        orString = formatCatString(orString);
-        categoryString = formatCatString(`${andString} ${orString}`);
+        removeString = formatCatString(removeString);
+        groupString = groupString.map(function (el) {
+            return formatCatString(el)
+        });
+        categoryString = formatCatString(`${groupString.join(' ')} ${removeString}`);
         return categoryString;
     }
+
+    //    convertCategoryObjToString();
 
     function formatCatString(input) {
         let regex = new RegExp(/(^\.|^ )|( $|\.$)/g);
