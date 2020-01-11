@@ -299,11 +299,11 @@ export const demoSelect = () => {
         });
         removeString = formatInputCatString(removeString);
         groupString = groupString.map(function (el) {
-            return formatOutputCatString(el)
+            return formatOutputCatString(el);
         });
         groupString = [...new Set(groupString)].filter(ec => ec !== '')
         categoryString = [groupString.join(' '), removeString];
-        categoryString = categoryString.join(' ');
+        categoryString = formatOutputCatString(categoryString.join(' '));
         return categoryString;
     }
 
@@ -322,12 +322,12 @@ export const demoSelect = () => {
     }
 
     function addRemoveCategoriesToCode() {
-        let categoryInput = formatOutputCatString(convertCategoryObjToString(convertTableHtmlToObj()));
+        let categoryInput = convertCategoryObjToString(convertTableHtmlToObj());
         let codeInput = getCodeValue();
         if (codeInput.match(/^deleteEventListenerByCategory\(\'[^)]*\'\)$/g)) {
             codeInput = codeInput.replace(
                 /\(\'[^)]*\'\)$/g,
-                `('${formatOutputCatString(categoryInput)}')`,
+                `('${categoryInput}')`,
             );
             setCodeInputText(codeInput);
         }
@@ -342,7 +342,7 @@ export const demoSelect = () => {
         if (codeInput.match(regex)) {
             codeInput = codeInput.replace(
                 /(\'[^')(]*\')\)$/g,
-                `'${formatInputCatString(categoryAssign)}')`,
+                `'${categoryAssign}')`,
             );
             setCodeInputText(codeInput);
         }
