@@ -38,7 +38,7 @@ button {
     .demoScreenTwo .leftsidebar > * > button {
       height: 1rem;
       text-align: center;
-      line-height: 0rem;
+      line-height: 0;
       border-radius: 10px;
       border: solid 3px #ccc; }
   .demoScreenTwo .leftsidebar .inputLabel {
@@ -61,8 +61,8 @@ button {
   width: 90%;
   margin: auto; }
 
-.demoScreenTwo .codeInput,
-.demoScreenTwo .categoryAssignInput {
+.demoScreenTwo .categoryAssignInput,
+.demoScreenTwo .codeInput {
   height: auto;
   font-size: 1rem;
   padding: 0.5rem;
@@ -77,9 +77,6 @@ button {
 .demoScreenOne,
 .demoScreenTwo {
   display: none; }
-
-.active {
-  display: block; }
 
 .demoSelect {
   position: absolute;
@@ -113,9 +110,7 @@ button {
   padding: 1rem; }
   .horizontalBtns button {
     width: 8rem;
-    margin: 0 auto;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem; }
+    margin: 0 0.3rem; }
 
 .verticalBtns {
   display: flex;
@@ -150,8 +145,7 @@ h4 {
   flex: 0 1 auto;
   align-self: auto;
   z-index: 1;
-  padding: 1rem;
-  padding-right: 0;
+  padding: 1rem 0 1rem 1rem;
   height: auto;
   width: auto; }
   .barcolumn > * {
@@ -174,8 +168,8 @@ h4 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px; }
+  grid-column-gap: 0;
+  grid-row-gap: 0; }
   .demoTwoGridContainer :nth-child(1) {
     grid-area: 1 / 1 / 2 / 4; }
   .demoTwoGridContainer :nth-child(2) {
@@ -220,13 +214,13 @@ h4 {
   height: 8rem;
   width: 40rem;
   text-align: center; }
-  .tableContainer th,
-  .tableContainer td {
+  .tableContainer td,
+  .tableContainer th {
     width: 20rem;
     white-space: nowrap; }
 
-.tableHead,
-.tableBody {
+.tableBody,
+.tableHead {
   display: block;
   text-align: center; }
 
@@ -243,10 +237,13 @@ h4 {
   display: block;
   width: 10rem; }
 
-.removeByHashInstructions,
-.removeByElementInstructions,
+.removeAllInstructions,
 .removeByCategoryInstructions,
-.removeAllInstructions {
+.removeByElementInstructions,
+.removeByHashInstructions {
+  display: none; }
+
+.screen {
   display: none; }
 
 .active {

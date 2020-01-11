@@ -1,17 +1,22 @@
 import * as elf from './index.js';
 
 export const demoSelect = () => {
-    document.getElementById('demoOneBtn').addEventListener('click', function () {
+    document.getElementById('aboutBtn').addEventListener('click', function() {
+        //add demo two class
+        makeScreenActive('aboutScreen');
+    });
+    document.getElementById('demoOneBtn').addEventListener('click', function() {
         //add demo one class
         makeScreenActive('demoScreenOne');
     });
-    document.getElementById('demoTwoBtn').addEventListener('click', function () {
+    document.getElementById('demoTwoBtn').addEventListener('click', function() {
         //add demo two class
         makeScreenActive('demoScreenTwo');
     });
 
+
     function makeScreenActive(className) {
-        let screens = document.querySelectorAll('[class*=demoScreen]');
+        let screens = [...document.getElementsByClassName("screen")];
         screens.forEach(screen => screen.classList.remove('active'));
         document.getElementsByClassName(className)[0].classList.add('active');
     }
@@ -20,7 +25,7 @@ export const demoSelect = () => {
 (function initDemoOne() {
     document
         .getElementById('newEventListenerBtn')
-        .addEventListener('click', function () {
+        .addEventListener('click', function() {
             let number = prompt(
                 'Enter a number of button to add event listener to:',
             );
@@ -34,7 +39,7 @@ export const demoSelect = () => {
                 elf.createEventListener(
                     el,
                     'click',
-                    function () {
+                    function() {
                         document.getElementById(
                             'messages',
                         ).innerHTML += `${string}<br>`;
@@ -47,7 +52,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('deleteEventListenerBtn')
-        .addEventListener('click', function () {
+        .addEventListener('click', function() {
             let number = prompt(
                 'Enter a number of button to delete event listener from:',
             );
@@ -66,7 +71,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('deleteAllEventListenersBtn')
-        .addEventListener('click', function () {
+        .addEventListener('click', function() {
             let number = prompt(
                 'Enter a number of button to delete all event listeners from:',
             );
@@ -84,7 +89,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('deleteEventListenersByCategoryBtn')
-        .addEventListener('click', function () {
+        .addEventListener('click', function() {
             let category = prompt(
                 'Enter a category of event listeners to delete:',
             );
@@ -93,14 +98,14 @@ export const demoSelect = () => {
         });
     document
         .getElementById('deleteDocumentEventListenersBtn')
-        .addEventListener('click', function () {
+        .addEventListener('click', function() {
             elf.deleteDocumentEventListeners();
             updateEventListenerInfo();
         });
 
     document
         .getElementById('clearMessagesBtn')
-        .addEventListener('click', function () {
+        .addEventListener('click', function() {
             document.getElementById('messages').innerHTML = '';
         });
 
@@ -178,7 +183,7 @@ export const demoSelect = () => {
 
     function getRegexListHashkeys() {
         let regexHashList = regexAssignList
-            .filter(function (regexListItem) {
+            .filter(function(regexListItem) {
                 if (/hashkey/g.test(regexListItem)) {
                     return regexListItem;
                 }
@@ -191,7 +196,7 @@ export const demoSelect = () => {
     }
 
     function addToHashRegexList(addHashKey) {
-        regexAssignList = regexAssignList.map(function (regexListItem) {
+        regexAssignList = regexAssignList.map(function(regexListItem) {
             if (/hashkey/g.test(regexListItem)) {
                 let itemPlainText = regexListItem
                     .toString()
@@ -207,7 +212,7 @@ export const demoSelect = () => {
         let stringList = JSON.stringify(regexList);
         let htmlSelectList = getListOfEventListenerIDs();
         let regex;
-        htmlSelectList.forEach(function (htmlListItem) {
+        htmlSelectList.forEach(function(htmlListItem) {
             regex = new RegExp(`${htmlListItem}`);
             if (!regex.test(stringList)) {
                 addToHashRegexList(htmlListItem);
@@ -227,7 +232,7 @@ export const demoSelect = () => {
     function getAllActiveCategories() {
         let eventListeners = elf.getEventListenerList();
         let eventListenerCategories =
-            eventListeners.map(function (el) {
+            eventListeners.map(function(el) {
                 return (el.eventCategory).split(/ |\./g);
             });
 
@@ -280,7 +285,7 @@ export const demoSelect = () => {
         let categoryString;
         let removeString = '';
         let groupString = ['', '', ''];
-        obj.forEach(function (el) {
+        obj.forEach(function(el) {
             if (el.removeValue) {
                 if (el.groupOne | el.groupTwo | el.groupThree) {
                     if (el.groupOne) {
@@ -298,7 +303,7 @@ export const demoSelect = () => {
             }
         });
         removeString = formatInputCatString(removeString);
-        groupString = groupString.map(function (el) {
+        groupString = groupString.map(function(el) {
             return formatOutputCatString(el);
         });
         groupString = [...new Set(groupString)].filter(ec => ec !== '')
@@ -348,7 +353,7 @@ export const demoSelect = () => {
         }
     }
 
-    document.getElementById('runCodeBtn').addEventListener('click', function () {
+    document.getElementById('runCodeBtn').addEventListener('click', function() {
         let code = getCodeValue();
         let createEventListener = elf.createEventListener;
         let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
@@ -370,7 +375,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('removeEventListenerFunctionSelection')
-        .addEventListener('click', function () {
+        .addEventListener('click', function() {
             let textLength = (this.options[this.selectedIndex].text.length);
             this.style.width = `${textLength*0.63225}rem`;
             showRemoveCodeInstructions(this.value);
