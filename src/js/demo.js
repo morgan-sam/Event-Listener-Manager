@@ -1,11 +1,11 @@
 import * as elf from './index.js';
 
 export const demoSelect = () => {
-    document.getElementById('demoOneBtn').addEventListener('click', function() {
+    document.getElementById('demoOneBtn').addEventListener('click', function () {
         //add demo one class
         makeScreenActive('demoScreenOne');
     });
-    document.getElementById('demoTwoBtn').addEventListener('click', function() {
+    document.getElementById('demoTwoBtn').addEventListener('click', function () {
         //add demo two class
         makeScreenActive('demoScreenTwo');
     });
@@ -20,7 +20,7 @@ export const demoSelect = () => {
 (function initDemoOne() {
     document
         .getElementById('newEventListenerBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let number = prompt(
                 'Enter a number of button to add event listener to:',
             );
@@ -34,7 +34,7 @@ export const demoSelect = () => {
                 elf.createEventListener(
                     el,
                     'click',
-                    function() {
+                    function () {
                         document.getElementById(
                             'messages',
                         ).innerHTML += `${string}<br>`;
@@ -47,7 +47,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('deleteEventListenerBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let number = prompt(
                 'Enter a number of button to delete event listener from:',
             );
@@ -66,7 +66,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('deleteAllEventListenersBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let number = prompt(
                 'Enter a number of button to delete all event listeners from:',
             );
@@ -84,7 +84,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('deleteEventListenersByCategoryBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             let category = prompt(
                 'Enter a category of event listeners to delete:',
             );
@@ -93,26 +93,26 @@ export const demoSelect = () => {
         });
     document
         .getElementById('deleteDocumentEventListenersBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             elf.deleteDocumentEventListeners();
             updateEventListenerInfo();
         });
 
     document
         .getElementById('clearMessagesBtn')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             document.getElementById('messages').innerHTML = '';
         });
 
     function updateEventListenerInfo() {
         document.getElementById(
-            'demoOneEventListenerInfo',
-        ).innerHTML = JSON.stringify(elf.getEventListenerList())
+                'demoOneEventListenerInfo',
+            ).innerHTML = JSON.stringify(elf.getEventListenerList())
             .replace(/},{/g, '}<br>{')
             .replace(/(?:\[|\])/g, '');
     }
 })();
-//|cw909talj1g|8r06u7ekoba|x6q8vpe3yub|hc07goes6wf|u7apseh6nto|t9p94g4921a|m5fmr4pt3l
+
 (function initDemoTwo() {
     let regexAssignList = [
         /hashkey/g,
@@ -172,13 +172,13 @@ export const demoSelect = () => {
         dropdown.innerHTML = `<option value='hashkey'>Select Hashkey</option>`;
         newListIDs.forEach(
             hash =>
-                (dropdown.innerHTML += `<option value='${hash}'>${hash}</option>`),
+            (dropdown.innerHTML += `<option value='${hash}'>${hash}</option>`),
         );
     }
 
     function getRegexListHashkeys() {
         let regexHashList = regexAssignList
-            .filter(function(regexListItem) {
+            .filter(function (regexListItem) {
                 if (/hashkey/g.test(regexListItem)) {
                     return regexListItem;
                 }
@@ -191,7 +191,7 @@ export const demoSelect = () => {
     }
 
     function addToHashRegexList(addHashKey) {
-        regexAssignList = regexAssignList.map(function(regexListItem) {
+        regexAssignList = regexAssignList.map(function (regexListItem) {
             if (/hashkey/g.test(regexListItem)) {
                 let itemPlainText = regexListItem
                     .toString()
@@ -207,7 +207,7 @@ export const demoSelect = () => {
         let stringList = JSON.stringify(regexList);
         let htmlSelectList = getListOfEventListenerIDs();
         let regex;
-        htmlSelectList.forEach(function(htmlListItem) {
+        htmlSelectList.forEach(function (htmlListItem) {
             regex = new RegExp(`${htmlListItem}`);
             if (!regex.test(stringList)) {
                 addToHashRegexList(htmlListItem);
@@ -226,13 +226,12 @@ export const demoSelect = () => {
     //For instance 'message greeting alert' as a category must be stored as an array of length 3, not a single string
     function getAllActiveCategories() {
         let eventListeners = elf.getEventListenerList();
-        let eventListenerCategories = [
-            ...new Set(
-                eventListeners.map(function(el) {
-                    return el.eventCategory;
-                }),
-            ),
-        ];
+        let eventListenerCategories =
+            eventListeners.map(function (el) {
+                return (el.eventCategory).split(/ |\./g);
+            });
+
+        eventListenerCategories = [...new Set(eventListenerCategories.flat())];
         return eventListenerCategories;
     }
 
@@ -278,7 +277,7 @@ export const demoSelect = () => {
         let categoryString;
         let andString = '';
         let orString = '';
-        obj.forEach(function(el) {
+        obj.forEach(function (el) {
             if (el.removeValue) {
                 if (el.andValue) {
                     andString += `${el.category}.`;
@@ -325,7 +324,7 @@ export const demoSelect = () => {
         }
     }
 
-    document.getElementById('runCodeBtn').addEventListener('click', function() {
+    document.getElementById('runCodeBtn').addEventListener('click', function () {
         let code = getCodeValue();
         let createEventListener = elf.createEventListener;
         let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
@@ -347,7 +346,7 @@ export const demoSelect = () => {
 
     document
         .getElementById('removeEventListenerFunctionSelection')
-        .addEventListener('click', function() {
+        .addEventListener('click', function () {
             showRemoveCodeInstructions(this.value);
         });
 
@@ -378,8 +377,8 @@ export const demoSelect = () => {
 
     function updateEventListenerInfo() {
         document.getElementById(
-            'demoTwoEventListenerInfo',
-        ).innerHTML = JSON.stringify(elf.getEventListenerList())
+                'demoTwoEventListenerInfo',
+            ).innerHTML = JSON.stringify(elf.getEventListenerList())
             .replace(/},{/g, '}<br>{')
             .replace(/(?:\[|\])/g, '');
     }
