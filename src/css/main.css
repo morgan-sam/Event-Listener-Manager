@@ -218,11 +218,11 @@ h4 {
 
 .tableContainer {
   height: 8rem;
-  width: 25rem;
+  width: 40rem;
   text-align: center; }
   .tableContainer th,
   .tableContainer td {
-    width: 10rem;
+    width: 20rem;
     white-space: nowrap; }
 
 .tableHead,

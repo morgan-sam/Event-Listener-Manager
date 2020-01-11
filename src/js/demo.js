@@ -277,62 +277,6 @@ export const demoSelect = () => {
     }
 
     function convertCategoryObjToString(obj) {
-        //        obj = [{
-        //                category: "1",
-        //                removeValue: true,
-        //                groupOne: true,
-        //                groupTwo: false,
-        //                groupThree: false
-        //            },
-        //            {
-        //                category: "2",
-        //                removeValue: true,
-        //                groupOne: true,
-        //                groupTwo: false,
-        //                groupThree: false
-        //            },
-        //            {
-        //                category: "3",
-        //                removeValue: true,
-        //                groupOne: false,
-        //                groupTwo: true,
-        //                groupThree: false
-        //            },
-        //            {
-        //                category: "4",
-        //                removeValue: true,
-        //                groupOne: false,
-        //                groupTwo: true,
-        //                groupThree: false
-        //            },
-        //            {
-        //                category: "5",
-        //                removeValue: true,
-        //                groupOne: false,
-        //                groupTwo: false,
-        //                groupThree: true
-        //            },
-        //            {
-        //                category: "6",
-        //                removeValue: true,
-        //                groupOne: false,
-        //                groupTwo: false,
-        //                groupThree: true
-        //            },
-        //            {
-        //                category: "7",
-        //                removeValue: true,
-        //                groupOne: false,
-        //                groupTwo: false,
-        //                groupThree: false
-        //            },
-        //            {
-        //                category: "8",
-        //                removeValue: true,
-        //                groupOne: false,
-        //                groupTwo: false,
-        //                groupThree: false
-        //            }]
         let categoryString;
         let removeString = '';
         let groupString = ['', '', ''];
@@ -353,35 +297,43 @@ export const demoSelect = () => {
                 }
             }
         });
-        removeString = formatCatString(removeString);
+        removeString = formatInputCatString(removeString);
         groupString = groupString.map(function (el) {
-            return formatCatString(el)
+            return formatOutputCatString(el)
         });
-        categoryString = formatCatString(`${groupString.join(' ')} ${removeString}`);
+
+        categoryString = groupString.filter(Boolean).join(' ') + removeString;
         return categoryString;
     }
 
-    //    convertCategoryObjToString();
+    function formatInputCatString(input) {
+        let output = input.trim();
+        output = [...new Set(output.split(/\.|\ /g))];
+        output = output.filter(ec => ec !== '').join(' ');
+        return output;
+    }
 
-    function formatCatString(input) {
+    function formatOutputCatString(input) {
+        input = input.trim();
         let regex = new RegExp(/(^\.|^ )|( $|\.$)/g);
-        return input.replace(regex, '');
+        let output = input.replace(regex, '');
+        return output;
     }
 
     function addRemoveCategoriesToCode() {
-        let categoryInput = convertCategoryObjToString(convertTableHtmlToObj());
+        let categoryInput = formatOutputCatString(convertCategoryObjToString(convertTableHtmlToObj()));
         let codeInput = getCodeValue();
         if (codeInput.match(/^deleteEventListenerByCategory\(\'[^)]*\'\)$/g)) {
             codeInput = codeInput.replace(
                 /\(\'[^)]*\'\)$/g,
-                `('${categoryInput}')`,
+                `('${formatOutputCatString(categoryInput)}')`,
             );
             setCodeInputText(codeInput);
         }
     }
 
     function assignCategoriesToCode() {
-        let categoryAssign = getCategoryInput();
+        let categoryAssign = formatInputCatString(getCategoryInput());
         let codeInput = getCodeValue();
         let regex = new RegExp(
             /^createEventListener\([^,]*,[^,]*,[^,]*,(\'[^')(]*\')\)$/g,
@@ -389,7 +341,7 @@ export const demoSelect = () => {
         if (codeInput.match(regex)) {
             codeInput = codeInput.replace(
                 /(\'[^')(]*\')\)$/g,
-                `'${categoryAssign}')`,
+                `'${formatInputCatString(categoryAssign)}')`,
             );
             setCodeInputText(codeInput);
         }
