@@ -252,7 +252,9 @@ export const demoSelect = () => {
         <tr>
             <td>${category}</td>
             <td><input type="checkbox" class="removeCheckbox"></td>
-            <td><input type="checkbox" class="andOpCheckbox"></td>
+            <td><input type="checkbox" class="groupOneCheckbox"></td>
+            <td><input type="checkbox" class="groupTwoCheckbox"></td>
+            <td><input type="checkbox" class="groupThreeCheckbox"></td>
         </tr>`;
     }
 
@@ -266,13 +268,16 @@ export const demoSelect = () => {
             let catObj = {};
             catObj['category'] = tableRow.cells[0].innerHTML;
             catObj['removeValue'] = tableRow.cells[1].firstChild.checked;
-            catObj['andValue'] = tableRow.cells[2].firstChild.checked;
+            catObj['groupOne'] = tableRow.cells[2].firstChild.checked;
+            catObj['groupTwo'] = tableRow.cells[3].firstChild.checked;
+            catObj['groupThree'] = tableRow.cells[4].firstChild.checked;
             categoryObjectArray.push(catObj);
         }
         return categoryObjectArray;
     }
 
     function convertCategoryObjToString(obj) {
+        console.log(obj);
         let categoryString;
         let andString = '';
         let orString = '';
