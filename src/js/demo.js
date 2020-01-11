@@ -371,6 +371,8 @@ export const demoSelect = () => {
     document
         .getElementById('removeEventListenerFunctionSelection')
         .addEventListener('click', function () {
+            let textLength = (this.options[this.selectedIndex].text.length);
+            this.style.width = `${textLength*0.63225}rem`;
             showRemoveCodeInstructions(this.value);
         });
 
@@ -406,5 +408,4 @@ export const demoSelect = () => {
             .replace(/},{/g, '}<br>{')
             .replace(/(?:\[|\])/g, '');
     }
-    showRemoveCodeInstructions('removeByCategoryInstructions');
 })();

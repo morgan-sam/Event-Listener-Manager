@@ -236,6 +236,13 @@ h4 {
   width: auto;
   overflow-x: hidden; }
 
+.selectTutorialDropdown {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 10rem; }
+
 .removeByHashInstructions,
 .removeByElementInstructions,
 .removeByCategoryInstructions,
