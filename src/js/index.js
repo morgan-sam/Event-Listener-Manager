@@ -55,9 +55,24 @@ export const createEventListener = (
 //If called multiple categories it will remove all events only with all specified categories, irrespective of order.
 //An EL with the categories 'main btn nav' will be removed if dELBC() is called with any of the following category arguments: 'main', 'nav', 'btn', 'main btn', 'btn nav', 'main nav', or 'main btn nav'. The order of each can be changed as long as each seperate word is present.
 
-export const deleteEventListenerByCategory = category => {
+
+export const deleteEventListenerByCategory = categoryInput => {
+    categoryInput = categoryInput.split(/ +/g).filter(ec => ec !== '');
+    let categoryEvents = categoryInput.map(function (el) {
+        return dotOperatorMatchingEventListeners(el);
+    });
+    categoryEvents = [...new Set(categoryEvents.flat())];
+    categoryEvents.forEach(el =>
+        document
+        .getElementById(el.elementID)
+        .deleteEventListener(el.eventListenerID),
+    );
+}
+
+//takes either a single category or multiple categories seperated by dots as an argument
+function dotOperatorMatchingEventListeners(categoryInput) {
     let regexString;
-    let categories = category.split(' ');
+    let categories = categoryInput.split('.');
     let categoryEvents = eventListenerStorage.filter(el => {
         for (let i = 0; i < categories.length; i++) {
             regexString = `((?! ))(\\b${categories[i]}\\b)`;
@@ -65,12 +80,8 @@ export const deleteEventListenerByCategory = category => {
         }
         return true;
     });
-    categoryEvents.forEach(el =>
-        document
-        .getElementById(el.elementID)
-        .deleteEventListener(el.eventListenerID),
-    );
-};
+    return categoryEvents;
+}
 
 //deleteDocumentEventListeners simply removes every single event listener on the page.
 

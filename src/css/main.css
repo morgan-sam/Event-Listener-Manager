@@ -228,7 +228,7 @@ h4 {
 .tableHead,
 .tableBody {
   display: block;
-  text-align: left; }
+  text-align: center; }
 
 .tableBody {
   height: 6.5rem;
