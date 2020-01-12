@@ -243,6 +243,20 @@ h4 {
 .removeByHashInstructions {
   display: none; }
 
+.aboutScreen {
+  margin: 4rem; }
+  .aboutScreen h1 {
+    text-align: center;
+    padding-bottom: 2.5rem; }
+  .aboutScreen p {
+    margin: 1rem;
+    font-size: 1.2rem; }
+  .aboutScreen code {
+    display: block;
+    padding: 1.5rem; }
+  .aboutScreen .functionDefinition {
+    padding: 1rem; }
+
 .screen {
   display: none; }
 

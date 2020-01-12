@@ -327,6 +327,29 @@ h4 {
   display: none;
 }
 
+.aboutScreen {
+  margin: 4rem;
+
+  h1 {
+    text-align: center;
+    padding-bottom: 2.5rem;
+  }
+
+  p {
+    margin: 1rem;
+    font-size: 1.2rem;
+  }
+
+  code {
+    display: block;
+    padding: 1.5rem;
+  }
+
+  .functionDefinition {
+    padding: 1rem;
+  }
+}
+
 .screen {
   display: none;
 }
