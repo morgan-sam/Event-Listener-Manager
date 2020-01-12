@@ -327,7 +327,8 @@ h4 {
   display: none;
 }
 
-.aboutScreen {
+.aboutScreen,
+.howToUseScreen {
   margin: 4rem;
 
   h1 {
@@ -347,6 +348,17 @@ h4 {
 
   .functionDefinition {
     padding: 1rem;
+  }
+}
+
+.howToUseScreen {
+  code {
+    display: inline-block;
+    padding: 0;
+    background-color: #ddd;
+    vertical-align: text-bottom;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
 }
 

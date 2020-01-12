@@ -243,19 +243,32 @@ h4 {
 .removeByHashInstructions {
   display: none; }
 
-.aboutScreen {
+.aboutScreen,
+.howToUseScreen {
   margin: 4rem; }
-  .aboutScreen h1 {
+  .aboutScreen h1,
+  .howToUseScreen h1 {
     text-align: center;
     padding-bottom: 2.5rem; }
-  .aboutScreen p {
+  .aboutScreen p,
+  .howToUseScreen p {
     margin: 1rem;
     font-size: 1.2rem; }
-  .aboutScreen code {
+  .aboutScreen code,
+  .howToUseScreen code {
     display: block;
     padding: 1.5rem; }
-  .aboutScreen .functionDefinition {
+  .aboutScreen .functionDefinition,
+  .howToUseScreen .functionDefinition {
     padding: 1rem; }
+
+.howToUseScreen code {
+  display: inline-block;
+  padding: 0;
+  background-color: #ddd;
+  vertical-align: text-bottom;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem; }
 
 .screen {
   display: none; }
