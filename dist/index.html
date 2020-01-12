@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -14,8 +15,38 @@
     <button id="demoOneBtn" type="button" class="button">Demo 1</button>
     <button id="demoTwoBtn" type="button" class="button">Demo 2</button>
   </div>
+  <div class="aboutScreen screen active">
 
-  <div class="demoScreenOne">
+    <h1>ELF - Event Listener Framework</h1>
+
+    <p>ELF (event listener framework) is a library to simplify the process of adding and removing eventlisteners.</p>
+    <p>ELF uses haskeys to identify event listeners so specific event listeners can be easily removed using a key. In vanilla JS the exact arguments used on the add call must match the remove call, which can lead to confusion if the specified
+      arguments have changed value since the event listener was created. ELF stores the add arguments in an array so they can be easily accessed when they are needed to remove an event listener</p>
+    <p>ELF allows for removing multiple event listeners at the same time, either via element, the entire document, or using categories (which work similar to how CSS classes work).</p>
+    <p>ELF adds the following new functions:</p>
+    <div class="functionDefinition">
+      <code>createEventListener(elementID, eventType, elementFunc, eventCategory);</code>
+      <cite>Similar to addeventlistener, except the event target must be provided by ID. Also allows for categories to be specified.</cite>
+    </div>
+    <div class="functionDefinition">
+      <code>element.deleteEventListener(hashkey);</code>
+      <cite>Removes a specific event listener from an element using a specified hashkey.</cite>
+    </div>
+    <div class="functionDefinition">
+      <code>element.deleteAllEventListeners();</code>
+      <cite>Removes all event listeners from the element is it called on.</cite>
+    </div>
+    <div class="functionDefinition">
+      <code>deleteEventListenerByCategory(categoryInput);</code>
+      <cite>Removes all event listeners of specified category, or multiple categories. Spaces and dots work as logical OR and AND operators respectively, just like CSS classes.</cite>
+    </div>
+    <div class="functionDefinition">
+      <code>deleteDocumentEventListeners();</code>
+      <cite>Removes all event listeners on document.</cite>
+    </div>
+
+  </div>
+  <div class="demoScreenOne screen">
     <div class="pagecolumns">
       <div class="barcolumn">
         <div class="center smallContainer assignmentOptions">
@@ -73,7 +104,7 @@
     </div>
   </div>
 
-  <div class="demoScreenTwo active">
+  <div class="demoScreenTwo screen">
     <div class="demoTwoGridContainer">
       <div class="demoTwoGridBox">
         <div class="smallTextCtn">
@@ -269,6 +300,6 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="./bundle.js?113efba1c45f33f9582e"></script></body>
+<script type="text/javascript" src="./bundle.js?f82024b0dee0493a00f2"></script></body>
 
 </html>

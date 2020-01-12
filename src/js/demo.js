@@ -2,18 +2,17 @@ import * as elf from './index.js';
 
 export const demoSelect = () => {
     document.getElementById('aboutBtn').addEventListener('click', function() {
-        //add demo two class
         makeScreenActive('aboutScreen');
     });
+    document.getElementById('howToUseBtn').addEventListener('click', function() {
+        makeScreenActive('howToUseScreen');
+    });
     document.getElementById('demoOneBtn').addEventListener('click', function() {
-        //add demo one class
         makeScreenActive('demoScreenOne');
     });
     document.getElementById('demoTwoBtn').addEventListener('click', function() {
-        //add demo two class
         makeScreenActive('demoScreenTwo');
     });
-
 
     function makeScreenActive(className) {
         let screens = [...document.getElementsByClassName("screen")];
