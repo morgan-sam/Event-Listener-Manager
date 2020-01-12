@@ -7,11 +7,11 @@ export const demoSelect = () => {
     document.getElementById('howToUseBtn').addEventListener('click', function() {
         makeScreenActive('howToUseScreen');
     });
-    document.getElementById('demoOneBtn').addEventListener('click', function() {
-        makeScreenActive('demoScreenOne');
+    document.getElementById('demoBtn').addEventListener('click', function() {
+        makeScreenActive('demoScreen');
     });
-    document.getElementById('demoTwoBtn').addEventListener('click', function() {
-        makeScreenActive('demoScreenTwo');
+    document.getElementById('tutorialBtn').addEventListener('click', function() {
+        makeScreenActive('tutorialScreen');
     });
 
     function makeScreenActive(className) {
@@ -21,7 +21,7 @@ export const demoSelect = () => {
     }
 };
 
-(function initDemoOne() {
+(function initDemo() {
     document
         .getElementById('newEventListenerBtn')
         .addEventListener('click', function() {
@@ -110,14 +110,14 @@ export const demoSelect = () => {
 
     function updateEventListenerInfo() {
         document.getElementById(
-                'demoOneEventListenerInfo',
+                'demoEventListenerInfo',
             ).innerHTML = JSON.stringify(elf.getEventListenerList())
             .replace(/},{/g, '}<br>{')
             .replace(/(?:\[|\])/g, '');
     }
 })();
 
-(function initDemoTwo() {
+(function initTutorial() {
     let regexAssignList = [
         /hashkey/g,
         /elementID|btnA|btnB|btnC/g,
@@ -407,7 +407,7 @@ export const demoSelect = () => {
 
     function updateEventListenerInfo() {
         document.getElementById(
-                'demoTwoEventListenerInfo',
+                'tutorialEventListenerInfo',
             ).innerHTML = JSON.stringify(elf.getEventListenerList())
             .replace(/},{/g, '}<br>{')
             .replace(/(?:\[|\])/g, '');

@@ -11,7 +11,7 @@ button {
   font-size: 1.3rem;
 }
 
-.demoOneButtons {
+.demoButtons {
   &:nth-child(1) {
     background: #ff9994;
   }
@@ -29,7 +29,7 @@ button {
   }
 }
 
-.demoTwoButtons {
+.tutorialButtons {
   border-radius: 10px;
   border: solid grey 1px;
 
@@ -46,7 +46,7 @@ button {
   }
 }
 
-.demoScreenTwo {
+.tutorialScreen {
   .leftsidebar {
     width: 33vw;
 
@@ -103,8 +103,8 @@ button {
   }
 }
 
-.demoScreenOne,
-.demoScreenTwo {
+.demoScreen,
+.tutorialScreen {
   display: none;
 }
 
@@ -222,7 +222,7 @@ h4 {
   width: 15vw;
 }
 
-.demoTwoGridContainer {
+.tutorialGridContainer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -258,7 +258,7 @@ h4 {
   }
 }
 
-.demoTwoGridBox {
+.tutorialGridBox {
   button {
     background: #d8bfd8;
     min-width: auto;
@@ -268,7 +268,7 @@ h4 {
   padding: 1rem;
 }
 
-.demoScreenTwo {
+.tutorialScreen {
   margin: 2rem;
 
   .eventListenerInfo {
