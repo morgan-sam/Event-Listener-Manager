@@ -33,6 +33,7 @@ export const demoSelect = () => {
             let category = prompt(
                 'Enter category to place event (leave blank for none):',
             );
+            category += ' demo';
 
             if (document.getElementById(el) && string) {
                 elf.createEventListener(
@@ -109,11 +110,15 @@ export const demoSelect = () => {
         });
 
     function updateEventListenerInfo() {
-        document.getElementById(
-                'demoEventListenerInfo',
-            ).innerHTML = JSON.stringify(elf.getEventListenerList())
+        let listenerInfo = document.getElementById(
+            'demoEventListenerInfo',
+        );
+        let string = JSON.stringify(elf.getEventListenerList())
             .replace(/},{/g, '}<br>{')
             .replace(/(?:\[|\])/g, '');
+        let demoRegex = new RegExp(/([^A-Za-z0-9]+)(demo)([^A-Za-z0-9]+)/g);
+        let demoRemovedText = string.replace(demoRegex, "$1$3")
+        listenerInfo.innerHTML = demoRemovedText;
     }
 })();
 
