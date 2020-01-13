@@ -12,17 +12,18 @@
 <body>
   <div class="demoSelect">
     <button id="aboutBtn" type="button" class="button">About</button>
-    <button id="demoOneBtn" type="button" class="button">Demo 1</button>
-    <button id="demoTwoBtn" type="button" class="button">Demo 2</button>
+    <button id="howToUseBtn" type="button" class="button">How to use</button>
+    <button id="demoBtn" type="button" class="button">Demo</button>
+    <button id="tutorialBtn" type="button" class="button">Tutorial</button>
   </div>
-  <div class="aboutScreen screen active">
+  <div class="aboutScreen screen">
 
     <h1>ELF - Event Listener Framework</h1>
 
     <p>ELF (event listener framework) is a library to simplify the process of adding and removing eventlisteners.</p>
     <p>ELF uses haskeys to identify event listeners so specific event listeners can be easily removed using a key. In vanilla JS the exact arguments used on the add call must match the remove call, which can lead to confusion if the specified
       arguments have changed value since the event listener was created. ELF stores the add arguments in an array so they can be easily accessed when they are needed to remove an event listener</p>
-    <p>ELF allows for removing multiple event listeners at the same time, either via element, the entire document, or using categories (which work similar to how CSS classes work).</p>
+    <p>ELF allows for removing multiple event listeners at the same time, either via element, the entire document, or using categories (which work similarly to CSS classes).</p>
     <p>ELF adds the following new functions:</p>
     <div class="functionDefinition">
       <code>createEventListener(elementID, eventType, elementFunc, eventCategory);</code>
@@ -38,7 +39,7 @@
     </div>
     <div class="functionDefinition">
       <code>deleteEventListenerByCategory(categoryInput);</code>
-      <cite>Removes all event listeners of specified category, or multiple categories. Spaces and dots work as logical OR and AND operators respectively, just like CSS classes.</cite>
+      <cite>Removes all event listeners of specified categories, or multiple category combinations. Spaces and dots work as logical OR and AND operators respectively, just like CSS classes.</cite>
     </div>
     <div class="functionDefinition">
       <code>deleteDocumentEventListeners();</code>
@@ -46,7 +47,22 @@
     </div>
 
   </div>
-  <div class="demoScreenOne screen">
+
+
+
+  <div class="howToUseScreen screen active">
+
+    <h1>How to use this demo</h1>
+    <p>The two demos provided help to make clear the functionality and usage of ELF.</p>
+    <h3>Demo</h3>
+    <p>The demo section shows the basic functionality of ELF without showing the code. It has a button for creating event listeners, and buttons for the 4 methods of deleting event listeners.</p>
+    <p>The pop up prompts will ask for the revelant information needed to create/delete the event listeners (i.e. which button to assign, what message to print, and what categories to assign).</p>
+    <p>Assigned messages will print on screen in the message box, and created event listeners will appear in the active event listeners box.</p>
+    <p>Try making event listeners with as many different parameters as you can so you can try out each different way of deleting event listeners in ELF.</p>
+    <p>Remember multiple categories can be specified at once; with a period ( <code>.</code> ) specifying an AND operator and a space ( <code>&nbsp</code> ) specifying an OR operator.</p>
+  </div>
+
+  <div class="demoScreen screen">
     <div class="pagecolumns">
       <div class="barcolumn">
         <div class="center smallContainer assignmentOptions">
@@ -73,16 +89,16 @@
         </div>
 
         <div class="center smallContainer">
-          <button id="btn1" type="button" class="demoOneButtons">
+          <button id="btn1" type="button" class="demoButtons">
             1
           </button>
-          <button id="btn2" type="button" class="demoOneButtons">
+          <button id="btn2" type="button" class="demoButtons">
             2
           </button>
-          <button id="btn3" type="button" class="demoOneButtons">
+          <button id="btn3" type="button" class="demoButtons">
             3
           </button>
-          <button id="btn4" type="button" class="demoOneButtons">
+          <button id="btn4" type="button" class="demoButtons">
             4
           </button>
         </div>
@@ -98,21 +114,21 @@
       <div class="barcolumn">
         <div class="center smallContainer eventListenerInfo">
           <h3>Active Event Listeners:</h3>
-          <p id="demoOneEventListenerInfo"></p>
+          <p id="demoEventListenerInfo"></p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="demoScreenTwo screen">
-    <div class="demoTwoGridContainer">
-      <div class="demoTwoGridBox">
+  <div class="tutorialScreen screen">
+    <div class="tutorialGridContainer">
+      <div class="tutorialGridBox">
         <div class="smallTextCtn">
           <h2>Code Input:</h2>
           <input type="text" id="codeInput" name="code" class="codeInput" />
         </div>
         <div class="smallBtnCtn">
-          <button id="runCodeBtn" type="button" class="demoTwoCodeButtons">
+          <button id="runCodeBtn" type="button" class="tutorialCodeButtons">
             Run Code Input
           </button>
         </div>
@@ -121,57 +137,57 @@
         </div>
         <div class="smallBtnCtn">
           <div class="horizontalBtns">
-            <button id="btnA" type="button" class="demoTwoButtons">
+            <button id="btnA" type="button" class="tutorialButtons">
               A
             </button>
-            <button id="btnB" type="button" class="demoTwoButtons">
+            <button id="btnB" type="button" class="tutorialButtons">
               B
             </button>
-            <button id="btnC" type="button" class="demoTwoButtons">
+            <button id="btnC" type="button" class="tutorialButtons">
               C
             </button>
           </div>
         </div>
       </div>
-      <div class="demoTwoGridBox">
+      <div class="tutorialGridBox">
         <div class="center smallContainer eventListenerInfo">
           <h3>Active Event Listeners:</h3>
           <div class="center eventListenerInfo">
-            <p id="demoTwoEventListenerInfo"></p>
+            <p id="tutorialEventListenerInfo"></p>
           </div>
         </div>
       </div>
 
-      <div class="demoTwoGridBox">
+      <div class="tutorialGridBox">
         <div class="smallContainer assignmentOptions">
           <div class="smallTextCtn">
             <h2>Adding Event Listeners</h2>
           </div>
           <div class="smallBtnCtn">
             <h4>1:</h4>
-            <button id="codeNewEventListenerBtn" type="button" class="demoTwoCodeButtons addCodeFuncButton" value="createEventListener('elementID','eventType',eventFunction,'eventCategory')">
+            <button id="codeNewEventListenerBtn" type="button" class="tutorialCodeButtons addCodeFuncButton" value="createEventListener('elementID','eventType',eventFunction,'eventCategory')">
               Create Event Listener Function
             </button>
           </div>
           <div class="smallBtnCtn">
             <h4>2:</h4>
-            <button id="assignBtnAAddEL" type="button" class="demoTwoCodeButtons assignmentButton" value="btnA">
+            <button id="assignBtnAAddEL" type="button" class="tutorialCodeButtons assignmentButton" value="btnA">
               Assign Button A
             </button>
-            <button id="assignBtnBAddEL" type="button" class="demoTwoCodeButtons assignmentButton" value="btnB">
+            <button id="assignBtnBAddEL" type="button" class="tutorialCodeButtons assignmentButton" value="btnB">
               Assign Button B
             </button>
-            <button id="assignBtnCAddEL" type="button" class="demoTwoCodeButtons assignmentButton" value="btnC">
+            <button id="assignBtnCAddEL" type="button" class="tutorialCodeButtons assignmentButton" value="btnC">
               Assign Button C
             </button>
           </div>
 
           <div class="smallBtnCtn">
             <h4>3:</h4>
-            <button id="assignEventTypeClick" type="button" class="demoTwoCodeButtons assignmentButton" value="click">
+            <button id="assignEventTypeClick" type="button" class="tutorialCodeButtons assignmentButton" value="click">
               Assign Event Type Click
             </button>
-            <button id="assignEventTypeMouseover" type="button" class="demoTwoCodeButtons assignmentButton" value="mouseover">
+            <button id="assignEventTypeMouseover" type="button" class="tutorialCodeButtons assignmentButton" value="mouseover">
               Assign Event Type Mouseover
             </button>
           </div>
@@ -183,10 +199,10 @@
           </div>
           <div class="smallBtnCtn">
             <h4>5:</h4>
-            <button id="assignAlertEvent" type="button" class="demoTwoCodeButtons assignmentButton" value="() => alert(`text_value`)">
+            <button id="assignAlertEvent" type="button" class="tutorialCodeButtons assignmentButton" value="() => alert(`text_value`)">
               Assign Alert Event
             </button>
-            <button id="assignConsoleLogEvent" type="button" class="demoTwoCodeButtons assignmentButton" value="() => console.log(`text_value`)">
+            <button id="assignConsoleLogEvent" type="button" class="tutorialCodeButtons assignmentButton" value="() => console.log(`text_value`)">
               Assign Console Log Event
             </button>
           </div>
@@ -198,13 +214,13 @@
           </div>
           <div class="smallBtnCtn">
             <h4>7:</h4>
-            <button id="assignCategoryBtn" type="button" class="demoTwoCodeButtons assignmentButton">
+            <button id="assignCategoryBtn" type="button" class="tutorialCodeButtons assignmentButton">
               Assign Category
             </button>
           </div>
         </div>
       </div>
-      <div class="demoTwoGridBox">
+      <div class="tutorialGridBox">
         <div class="smallContainer assignmentOptions">
           <div class="smallTextCtn">
             <h2>Removing Event Listeners</h2>
@@ -223,31 +239,31 @@
           </div>
           <div class="smallBtnCtn removeByHashInstructions removeByElementInstructions">
             <h4>1:</h4>
-            <button id="codeElementIDCallBtn" type="button" class="demoTwoCodeButtons addCodeFuncButton" value="document.getElementById('elementID')">
+            <button id="codeElementIDCallBtn" type="button" class="tutorialCodeButtons addCodeFuncButton" value="document.getElementById('elementID')">
               Call Element ID
             </button>
           </div>
           <div class="smallBtnCtn removeByCategoryInstructions">
             <h4>1:</h4>
-            <button id="codeDeleteByCategoryFunctionBtn" type="button" class="demoTwoCodeButtons addCodeFuncButton" value="deleteEventListenerByCategory('category')">
+            <button id="codeDeleteByCategoryFunctionBtn" type="button" class="tutorialCodeButtons addCodeFuncButton" value="deleteEventListenerByCategory('category')">
               Remove Event Listeners By Category Function
             </button>
           </div>
           <div class="smallBtnCtn removeAllInstructions">
             <h4>1:</h4>
-            <button id="codeDeleteAllEventListenersBtn" type="button" class="demoTwoCodeButtons addCodeFuncButton" value="deleteDocumentEventListeners()">
+            <button id="codeDeleteAllEventListenersBtn" type="button" class="tutorialCodeButtons addCodeFuncButton" value="deleteDocumentEventListeners()">
               Remove All Event Listeners On Document Function
             </button>
           </div>
           <div class="smallBtnCtn removeByHashInstructions removeByElementInstructions">
             <h4>2:</h4>
-            <button id="assignBtnARemoveEL" type="button" class="demoTwoCodeButtons assignmentButton" value="btnA">
+            <button id="assignBtnARemoveEL" type="button" class="tutorialCodeButtons assignmentButton" value="btnA">
               Assign Button A
             </button>
-            <button id="assignBtnBRemoveEL" type="button" class="demoTwoCodeButtons assignmentButton" value="btnB">
+            <button id="assignBtnBRemoveEL" type="button" class="tutorialCodeButtons assignmentButton" value="btnB">
               Assign Button B
             </button>
-            <button id="assignBtnCRemoveEL" type="button" class="demoTwoCodeButtons assignmentButton" value="btnC">
+            <button id="assignBtnCRemoveEL" type="button" class="tutorialCodeButtons assignmentButton" value="btnC">
               Assign Button C
             </button>
           </div>
@@ -272,19 +288,19 @@
           </div>
           <div class="smallBtnCtn removeByHashInstructions">
             <h4>3:</h4>
-            <button id="codeDeleteEventListenerByHashBtn" type="button" class="demoTwoCodeButtons addCodeFuncButton" value=".deleteEventListener('hashkey')">
+            <button id="codeDeleteEventListenerByHashBtn" type="button" class="tutorialCodeButtons addCodeFuncButton" value=".deleteEventListener('hashkey')">
               Remove Event Listener By Hash Function
             </button>
           </div>
           <div class="smallBtnCtn removeByElementInstructions">
             <h4>3:</h4>
-            <button id="codeDeleteAllEventListenersOnElementBtn" type="button" class="demoTwoCodeButtons addCodeFuncButton" value=".deleteAllEventListeners()">
+            <button id="codeDeleteAllEventListenersOnElementBtn" type="button" class="tutorialCodeButtons addCodeFuncButton" value=".deleteAllEventListeners()">
               Remove All Element Event Listeners Function
             </button>
           </div>
           <div class="smallBtnCtn removeByCategoryInstructions">
             <h4>3:</h4>
-            <button id="codeAddCategoriesToFunctionBtn" type="button" class="demoTwoCodeButtons">
+            <button id="codeAddCategoriesToFunctionBtn" type="button" class="tutorialCodeButtons">
               Add Categories To Function
             </button>
           </div>
@@ -300,6 +316,6 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="./bundle.js?f82024b0dee0493a00f2"></script></body>
+<script type="text/javascript" src="./bundle.js?23b103a40cd10d29ca91"></script></body>
 
 </html>
