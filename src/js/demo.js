@@ -408,7 +408,8 @@ function updateEventListenerInfo(screenType) {
         .replace(/},{/g, '}<br>{')
         .replace(/(?:\[|\])/g, '');
     let regexString = `([^A-Za-z0-9]+)(${screenType})([^A-Za-z0-9]+)`;
-    let removedText = string.replace(new RegExp(regexString), "$1$3")
+    let regex = new RegExp(regexString, 'g');
+    let removedText = string.replace(regex, "$1$3")
     listenerInfo.innerHTML = removedText;
 }
 
