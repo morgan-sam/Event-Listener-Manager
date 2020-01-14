@@ -47,7 +47,7 @@ export const demoSelect = () => {
                     category,
                 );
             }
-            updateEventListenerInfo();
+            updateEventListenerInfo('demo');
         });
 
     document
@@ -66,7 +66,7 @@ export const demoSelect = () => {
                     console.log(`No event listener with hash: ${hashkey}`);
                 }
             }
-            updateEventListenerInfo();
+            updateEventListenerInfo('demo');
         });
 
     document
@@ -84,7 +84,7 @@ export const demoSelect = () => {
                     console.log(e);
                 }
             }
-            updateEventListenerInfo();
+            updateEventListenerInfo('demo');
         });
 
     document
@@ -94,13 +94,13 @@ export const demoSelect = () => {
                 'Enter a category of event listeners to delete:',
             );
             elf.deleteEventListenerByCategory(category);
-            updateEventListenerInfo();
+            updateEventListenerInfo('demo');
         });
     document
         .getElementById('deleteDocumentEventListenersBtn')
         .addEventListener('click', function() {
             elf.deleteDocumentEventListeners();
-            updateEventListenerInfo();
+            updateEventListenerInfo('demo');
         });
 
     document
@@ -108,18 +108,6 @@ export const demoSelect = () => {
         .addEventListener('click', function() {
             document.getElementById('messages').innerHTML = '';
         });
-
-    function updateEventListenerInfo() {
-        let listenerInfo = document.getElementById(
-            'demoEventListenerInfo',
-        );
-        let string = JSON.stringify(elf.getEventListenerList())
-            .replace(/},{/g, '}<br>{')
-            .replace(/(?:\[|\])/g, '');
-        let demoRegex = new RegExp(/([^A-Za-z0-9]+)(demo)([^A-Za-z0-9]+)/g);
-        let demoRemovedText = string.replace(demoRegex, "$1$3")
-        listenerInfo.innerHTML = demoRemovedText;
-    }
 })();
 
 (function initTutorial() {
@@ -363,7 +351,7 @@ export const demoSelect = () => {
         let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
         let deleteDocumentEventListeners = elf.deleteDocumentEventListeners;
         eval(code);
-        updateEventListenerInfo();
+        updateEventListenerInfo('tutorial');
         updateHashDropdownList();
         updateHashList();
         updateCategoryTable();
@@ -410,11 +398,36 @@ export const demoSelect = () => {
         document.getElementById('codeInput').value = string;
     }
 
-    function updateEventListenerInfo() {
-        document.getElementById(
-                'tutorialEventListenerInfo',
-            ).innerHTML = JSON.stringify(elf.getEventListenerList())
-            .replace(/},{/g, '}<br>{')
-            .replace(/(?:\[|\])/g, '');
-    }
 })();
+
+function updateEventListenerInfo(screenType) {
+    let listenerInfo = document.getElementById(
+        `${screenType}EventListenerInfo`,
+    );
+    let string = JSON.stringify(filterDemoEventListeners(screenType))
+        .replace(/},{/g, '}<br>{')
+        .replace(/(?:\[|\])/g, '');
+    let regexString = `([^A-Za-z0-9]+)(${screenType})([^A-Za-z0-9]+)`;
+    let removedText = string.replace(new RegExp(regexString), "$1$3")
+    listenerInfo.innerHTML = removedText;
+}
+
+function filterDemoEventListeners(screenType) {
+    let eventListeners = elf.getEventListenerList();
+    let demoList = [],
+        nonDemoList = [],
+        objToPass = [];
+    eventListeners.forEach(function(el) {
+        let elString = JSON.stringify(el);
+        if (elString.match(/([^A-Za-z0-9]+)(demo)([^A-Za-z0-9]+)/g)) {
+            demoList.push(JSON.parse(elString));
+        } else {
+            nonDemoList.push(JSON.parse(elString));
+        }
+    });
+    screenType === 'demo' ? objToPass = demoList : objToPass = nonDemoList;
+    return objToPass;
+}
+
+
+window.func = filterDemoEventListeners;
