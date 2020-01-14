@@ -362,7 +362,6 @@ export const demoSelect = () => {
         let createEventListener = elf.createEventListener;
         let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
         let deleteDocumentEventListeners = elf.deleteDocumentEventListeners;
-        console.log(code);
         eval(code);
         updateEventListenerInfo('tutorial');
         updateHashDropdownList();
@@ -417,7 +416,7 @@ function updateEventListenerInfo(screenType) {
     let listenerInfo = document.getElementById(
         `${screenType}EventListenerInfo`,
     );
-    let string = JSON.stringify(filterDemoEventListeners(screenType))
+    let string = JSON.stringify(filterEventListeners(screenType))
         .replace(/},{/g, '}<br>{')
         .replace(/(?:\[|\])/g, '');
     let regexString = `([^A-Za-z0-9]+)(${screenType})([^A-Za-z0-9]+)`;
@@ -426,19 +425,15 @@ function updateEventListenerInfo(screenType) {
     listenerInfo.innerHTML = removedText;
 }
 
-function filterDemoEventListeners(screenType) {
+function filterEventListeners(screenType) {
     let eventListeners = elf.getEventListenerList();
-    let demoList = [],
-        nonDemoList = [],
-        objToPass = [];
+    let matchList = [];
     eventListeners.forEach(function(el) {
         let elString = JSON.stringify(el);
-        if (elString.match(/([^A-Za-z0-9]+)(demo)([^A-Za-z0-9]+)/g)) {
-            demoList.push(JSON.parse(elString));
-        } else {
-            nonDemoList.push(JSON.parse(elString));
+        let regexString = `([^A-Za-z0-9]+)(${screenType})([^A-Za-z0-9]+)`;
+        if (elString.match(new RegExp(regexString, 'g'))) {
+            matchList.push(JSON.parse(elString));
         }
     });
-    screenType === 'demo' ? objToPass = demoList : objToPass = nonDemoList;
-    return objToPass;
+    return matchList;
 }
