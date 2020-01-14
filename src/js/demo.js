@@ -95,7 +95,8 @@ export const demoSelect = () => {
             let category = prompt(
                 'Enter a category of event listeners to delete:',
             );
-            elf.deleteEventListenerByCategory(category);
+            let catArr = category.split(' ').map(el => el += '.demo');
+            elf.deleteEventListenerByCategory(catArr.join(' '));
             updateEventListenerInfo('demo');
         });
     document
@@ -354,7 +355,7 @@ export const demoSelect = () => {
         if (code.match(regex)) {
             code = code.replace(/(\'[^')(]*)(\'\))$/g, "$1 tutorial$2");
         }
-        //adds tutorial string before executing deleteEventListenerByCategory()
+        //adds .tutorial to each category before executing deleteEventListenerByCategory()
         regex = new RegExp(/^deleteEventListenerByCategory\(\'[^)]*\'\)$/g);
         if (code.match(regex)) {
             let catString = (/(?:\(\')((?:[^)]+)+)(?:\'\))$/g).exec(code)[1];
