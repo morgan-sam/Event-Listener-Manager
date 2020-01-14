@@ -347,13 +347,22 @@ export const demoSelect = () => {
     }
 
     function addTutorialCategoryBeforeExecution(code) {
+        //adds tutorial string before executing createEventListener()
         let regex = new RegExp(
             /^createEventListener\([^,]*,[^,]*,[^,]*,(\'[^')(]*\')\)$/g,
         );
         if (code.match(regex)) {
             code = code.replace(/(\'[^')(]*)(\'\))$/g, "$1 tutorial$2");
-            return code;
         }
+        //adds tutorial string before executing deleteEventListenerByCategory()
+        regex = new RegExp(/^deleteEventListenerByCategory\(\'[^)]*\'\)$/g);
+        if (code.match(regex)) {
+            let catString = (/(?:\(\')((?:[^)]+)+)(?:\'\))$/g).exec(code)[1];
+            let catArr = catString.split(' ').map(el => el += '.tutorial');
+            code = code.replace(/(\(\')([^)]*)(\'\))$/g, `$1${catArr.join(' ')}$3`);
+        }
+        console.log(code);
+        return code;
     }
 
     document.getElementById('runCodeBtn').addEventListener('click', function() {
