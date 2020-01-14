@@ -115,8 +115,7 @@ export const demoSelect = () => {
         /hashkey/g,
         /elementID|btnA|btnB|btnC/g,
         /eventType|click|mouseover/g,
-        /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g,
-        /eventCategory|Greeting|Message/g,
+        /eventFunction|\(\) => alert\([^)]+\)|\(\) => console.log\([^)]+\)/g
     ];
 
     function assignValueToCodeInput(evt) {
