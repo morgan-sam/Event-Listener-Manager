@@ -239,7 +239,9 @@ export const demoSelect = () => {
             .querySelector('.categoryTable')
             .querySelector('.tableBody').innerHTML = '';
         let categories = getAllActiveCategories();
-        categories.forEach(el => addNewCategoryToTable(el));
+        categories.forEach(el => {
+            if (el != 'demo' && el != 'tutorial') addNewCategoryToTable(el)
+        });
     }
 
     function addNewCategoryToTable(category) {
