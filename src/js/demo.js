@@ -8,9 +8,11 @@ export const demoSelect = () => {
         makeScreenActive('howToUseScreen');
     });
     document.getElementById('demoBtn').addEventListener('click', function() {
+        updateEventListenerInfo('demo');
         makeScreenActive('demoScreen');
     });
     document.getElementById('tutorialBtn').addEventListener('click', function() {
+        updateEventListenerInfo('tutorial');
         makeScreenActive('tutorialScreen');
     });
 
@@ -428,6 +430,5 @@ function filterDemoEventListeners(screenType) {
     screenType === 'demo' ? objToPass = demoList : objToPass = nonDemoList;
     return objToPass;
 }
-
 
 window.func = filterDemoEventListeners;
