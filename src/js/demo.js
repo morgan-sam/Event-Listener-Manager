@@ -346,11 +346,23 @@ export const demoSelect = () => {
         }
     }
 
+    function addTutorialCategoryBeforeExecution(code) {
+        let regex = new RegExp(
+            /^createEventListener\([^,]*,[^,]*,[^,]*,(\'[^')(]*\')\)$/g,
+        );
+        if (code.match(regex)) {
+            code = code.replace(/(\'[^')(]*)(\'\))$/g, "$1 tutorial$2");
+            return code;
+        }
+    }
+
     document.getElementById('runCodeBtn').addEventListener('click', function() {
         let code = getCodeValue();
+        code = addTutorialCategoryBeforeExecution(code);
         let createEventListener = elf.createEventListener;
         let deleteEventListenerByCategory = elf.deleteEventListenerByCategory;
         let deleteDocumentEventListeners = elf.deleteDocumentEventListeners;
+        console.log(code);
         eval(code);
         updateEventListenerInfo('tutorial');
         updateHashDropdownList();
@@ -430,5 +442,3 @@ function filterDemoEventListeners(screenType) {
     screenType === 'demo' ? objToPass = demoList : objToPass = nonDemoList;
     return objToPass;
 }
-
-window.func = filterDemoEventListeners;
