@@ -327,10 +327,12 @@ h4 {
   display: none;
 }
 
+.aboutScreen {
+  margin: 4rem;
+}
+
 .aboutScreen,
 .howToUseScreen {
-  margin: 4rem;
-
   h1 {
     text-align: center;
     padding-bottom: 2.5rem;
@@ -352,6 +354,10 @@ h4 {
 }
 
 .howToUseScreen {
+  p {
+    font-size: 1rem;
+  }
+
   code {
     display: inline-block;
     padding: 0;
@@ -368,4 +374,23 @@ h4 {
 
 .active {
   display: block;
+}
+
+.howToUseScreen {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+
+  .mainTextContainer {
+    box-sizing: border-box;
+    padding: 4rem;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .howToSection {
+      padding-bottom: 1rem;
+    }
+  }
 }

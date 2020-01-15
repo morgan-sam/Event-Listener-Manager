@@ -47,26 +47,41 @@
 
 
 
-  <div class="howToUseScreen screen">
-    <h1>How to use the demo and tutorial</h1>
-    <p>The demo and tutorial provided help to make clear the functionality and usage of ELF.</p>
-    <h3>Demo</h3>
-    <p>The demo section shows the basic functionality of ELF without showing the code. It has a button for creating event listeners, and buttons for the 4 methods of deleting event listeners.</p>
-    <p>The pop up prompts will ask for the revelant information needed to create/delete the event listeners (i.e. which button to assign, what message to print, and what categories to assign).</p>
-    <p>Assigned messages will print on screen in the message box, and created event listeners will appear in the active event listeners box.</p>
-    <p>Try making event listeners with as many different parameters as you can so you can try out each different way of deleting event listeners in ELF.</p>
-    <p>Remember multiple categories can be specified at once; with a period ( <code>.</code> ) specifying an AND operator and a space ( <code>&nbsp</code> ) specifying an OR operator.</p>
-
-    <h3>Tutorial</h3>
-    <p>The tutorial section runs through the code of each different command via an ordered set of buttons with the code text displayed.</p>
-    <p>Each step has a numerically labelled button which adds code to the 'Code Input' section at the top. Once all steps of a given tutorial are completed, press 'Run Code Input' to run the full command.</p>
-    <p>For adding event listeners, each step will give multiple options for creating event listeners. As with the Demo try as many combinations as you can to see how each command is used programatically.</p>
-    <p>For removing event listeners, select a tutorial from the dropdown list of each 4 methods. Try all 4 to understand the distinct advantages of each method.</p>
-    <p>For the delete by hash tutorial, the list of active hashkeys will appear as a dropdown list.</p>
-    <p>For the delete by category tutorial, a table of each active category will appear. Select the corresponding remove checkbox to remove a category.</p>
-    <p>Categories can be grouped together by selecting remove and any of the 3 groups. Try several different grouping options and click assign without running code to see how the groups affect the code input text.</p>
+  <div class="howToUseScreen screen active">
+    <div class="mainTextContainer">
+      <h1>How to use the demo and tutorial</h1>
+      <div class="howToSection">
+        <p>The demo and tutorial provided help to make clear the functionality and usage of ELF.</p>
+      </div>
+      <div class="howToSection">
+        <h3>Demo</h3>
+        <p>The demo section shows the basic functionality of ELF without showing the code. It has a button for creating event listeners, and buttons for the 4 methods of deleting event listeners.</p>
+        <p>The pop up prompts will ask for the revelant information needed to create/delete the event listeners (i.e. which button to assign, what message to print, and what categories to assign).</p>
+        <p>Assigned messages will print on screen in the message box, and created event listeners will appear in the active event listeners box.</p>
+        <p>Try making event listeners with as many different parameters as you can so you can try out each different way of deleting event listeners in ELF.</p>
+        <p>Remember multiple categories can be specified at once; with a period ( <code>.</code> ) specifying an AND operator and a space ( <code>&nbsp</code> ) specifying an OR operator.</p>
+      </div>
+      <div class="howToSection">
+        <h3>Tutorial</h3>
+        <p>The tutorial section runs through the code of each different command via an ordered set of buttons with the code text displayed.</p>
+        <p>Each step has a numerically labelled button which adds code to the 'Code Input' section at the top. Once all steps of a given tutorial are completed, press 'Run Code Input' to run the full command.</p>
+        <p>For adding event listeners, each step will give multiple options for creating event listeners. As with the Demo try as many combinations as you can to see how each command is used programatically.</p>
+        <p>For removing event listeners, select a tutorial from the dropdown list of each 4 methods. Try all 4 to understand the distinct advantages of each method.</p>
+        <p>For the delete by hash tutorial, the list of active hashkeys will appear as a dropdown list.</p>
+        <p>For the delete by category tutorial, a table of each active category will appear. Select the corresponding remove checkbox to remove a category.</p>
+        <p>Categories can be grouped together by selecting remove and any of the 3 groups. Try several different grouping options and click assign without running code to see how the groups affect the code input text.</p>
+      </div>
+      <div class="howToSection">
+        <h3>Example Use Case</h3>
+        <p>You happen to be currently looking at an example of where ELF has proved advantageous! In creating this guide for the extension I came across an issue. Event listeners created on the Demo screen also appeared on the Tutorial screen, which
+          caused an interface attempting to simplify the explanation to become overly complicated. Removing a category on one screen would also affect any categories of the same name on the other. I wanted both the Demo and Tutorial screens to have
+          Event Listeners and controls that were completely independent of each other.</p>
+        <p>With the categories functionality I was able to achieve exactly that. Every EL created in the Demo screen has a hidden 'demo' category, and every EL created in the
+          Tutorial screen has a hidden 'tutorial' category. On deleting ELs by category on either screen, for each category input either '.demo' or '.tutorial' is added (i.e. 'msg new' becomes 'msg.demo new.demo'). This will only remove specified
+          categories in the appropriate screen, giving the exacly functionality I needed for this guide.</p>
+      </div>
+    </div>
   </div>
-
   <div class="demoScreen screen">
     <div class="pagecolumns">
       <div class="barcolumn">
@@ -125,7 +140,7 @@
     </div>
   </div>
 
-  <div class="tutorialScreen screen active">
+  <div class="tutorialScreen screen">
     <div class="tutorialGridContainer">
       <div class="tutorialGridBox">
         <div class="smallTextCtn">
