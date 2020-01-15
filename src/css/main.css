@@ -247,9 +247,6 @@ h4 {
 .removeByHashInstructions {
   display: none; }
 
-.aboutScreen {
-  margin: 4rem; }
-
 .aboutScreen h1,
 .howToUseScreen h1 {
   text-align: center;
@@ -269,28 +266,30 @@ h4 {
 .howToUseScreen .functionDefinition {
   padding: 1rem; }
 
-.howToUseScreen p {
-  font-size: 1rem; }
-
-.howToUseScreen code {
-  display: inline-block;
-  padding: 0;
-  background-color: #ddd;
-  vertical-align: text-bottom;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem; }
-
-.screen {
-  display: none; }
-
-.active {
-  display: block; }
+.aboutScreen {
+  width: 100vw;
+  height: 100vh; }
+  .aboutScreen .mainTextContainer {
+    box-sizing: border-box;
+    padding: 4rem;
+    width: 100%;
+    height: 100%;
+    overflow: auto; }
 
 .howToUseScreen {
   margin: 0;
   box-sizing: border-box;
   width: 100vw;
   height: 100vh; }
+  .howToUseScreen p {
+    font-size: 1rem; }
+  .howToUseScreen code {
+    display: inline-block;
+    padding: 0;
+    background-color: #ddd;
+    vertical-align: text-bottom;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem; }
   .howToUseScreen .mainTextContainer {
     box-sizing: border-box;
     padding: 4rem;
@@ -299,3 +298,9 @@ h4 {
     overflow: auto; }
     .howToUseScreen .mainTextContainer .howToSection {
       padding-bottom: 1rem; }
+
+.screen {
+  display: none; }
+
+.active {
+  display: block; }
