@@ -76,8 +76,9 @@ export const initDemo = () => {
             let category = prompt(
                 'Enter a category of event listeners to delete:',
             );
-            let catArr = category.split(' ').map(el => el += '.demo');
-            elf.deleteEventListenerByCategory(catArr.join(' '));
+            let catArr = category.split(' ').filter(ec => ec !== '');
+            let catString = catArr.map(el => el += '.demo').join(' ');
+            elf.deleteEventListenerByCategory(catString);
             updateEventListenerInfo('demo');
         });
     document

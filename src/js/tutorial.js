@@ -252,10 +252,10 @@ export const initTutorial = () => {
         regex = new RegExp(/^deleteEventListenerByCategory\(\'[^)]*\'\)$/g);
         if (code.match(regex)) {
             let catString = (/(?:\(\')((?:[^)]+)+)(?:\'\))$/g).exec(code)[1];
-            let catArr = catString.split(' ').map(el => el += '.tutorial');
-            code = code.replace(/(\(\')([^)]*)(\'\))$/g, `$1${catArr.join(' ')}$3`);
+            let catArr = catString.split(' ').filter(ec => ec !== '');
+            let modCatString = catArr.map(el => el += '.tutorial').join(' ');
+            code = code.replace(/(\(\')([^)]*)(\'\))$/g, `$1${modCatString}$3`);
         }
-        console.log(code);
         return code;
     }
 
