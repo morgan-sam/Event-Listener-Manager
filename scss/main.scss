@@ -1,408 +1,413 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
 button {
-  width: 8rem;
-  height: 2.2rem;
-  margin: 0.3rem;
-  font-size: 1.3rem;
+	width: 8rem;
+	height: 2.2rem;
+	margin: 0.3rem;
+	font-size: 1.3rem;
 }
 
 .demoButtons {
-  &:nth-child(1) {
-    background: #ff9994;
-  }
+	&:nth-child(1) {
+		background: #ff9994;
+	}
 
-  &:nth-child(2) {
-    background: #ffffa1;
-  }
+	&:nth-child(2) {
+		background: #ffffa1;
+	}
 
-  &:nth-child(3) {
-    background: #a6f1a6;
-  }
+	&:nth-child(3) {
+		background: #a6f1a6;
+	}
 
-  &:nth-child(4) {
-    background: #add8e6;
-  }
+	&:nth-child(4) {
+		background: #add8e6;
+	}
 }
 
 .tutorialButtons {
-  border-radius: 10px;
-  border: solid grey 1px;
+	border-radius: 10px;
+	border: solid grey 1px;
 
-  &:nth-child(1) {
-    background: #e3b4d3;
-  }
+	&:nth-child(1) {
+		background: #e3b4d3;
+	}
 
-  &:nth-child(2) {
-    background: #a9cae3;
-  }
+	&:nth-child(2) {
+		background: #a9cae3;
+	}
 
-  &:nth-child(3) {
-    background: #cdb4d8;
-  }
+	&:nth-child(3) {
+		background: #cdb4d8;
+	}
 }
 
 .tutorialScreen {
-  .leftsidebar {
-    width: 33vw;
+	.leftsidebar {
+		width: 33vw;
 
-    > * {
-      margin: 1rem;
+		> * {
+			margin: 1rem;
 
-      > button {
-        height: 1rem;
-        text-align: center;
-        line-height: 0;
-        border-radius: 10px;
-        border: solid 3px #ccc;
-      }
-    }
+			> button {
+				height: 1rem;
+				text-align: center;
+				line-height: 0;
+				border-radius: 10px;
+				border: solid 3px #ccc;
+			}
+		}
 
-    .inputLabel {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
+		.inputLabel {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
 
-  .smallBtnCtn > * {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+	.smallBtnCtn > * {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 
-  .smallTextCtn {
-    margin-top: 1.4rem;
-    margin-bottom: 1rem;
-  }
+	.smallTextCtn {
+		margin-top: 1.4rem;
+		margin-bottom: 1rem;
+	}
 
-  .textInput {
-    height: auto;
-    font-size: 1.4rem;
-    vertical-align: middle;
-    padding-left: 0.25rem;
-    width: 90%;
-    margin: auto;
-  }
+	.textInput {
+		height: auto;
+		font-size: 1.4rem;
+		vertical-align: middle;
+		padding-left: 0.25rem;
+		width: 90%;
+		margin: auto;
+	}
 
-  .categoryAssignInput,
-  .codeInput {
-    height: auto;
-    font-size: 1rem;
-    padding: 0.5rem;
-    width: 30vw;
-    margin: auto;
-  }
+	.categoryAssignInput,
+	.codeInput {
+		height: auto;
+		font-size: 1rem;
+		padding: 0.5rem;
+		width: 30vw;
+		margin: auto;
+	}
 
-  .dropDownSelection {
-    font-size: 1.4rem;
-    display: block;
-    width: 15rem;
-  }
+	.dropDownSelection {
+		font-size: 1.4rem;
+		display: block;
+		width: 15rem;
+	}
 }
 
 .demoScreen,
 .tutorialScreen {
-  display: none;
+	display: none;
 }
 
 .demoSelect {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 
-  button {
-    z-index: 1;
-    background-color: #ccc;
-  }
+	button {
+		z-index: 1;
+		background-color: #ccc;
+	}
 }
 
 .center {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .smallBtnCtn {
-  > button {
-    height: 1rem;
-    width: auto;
-    padding: 1rem;
-    line-height: 0;
-  }
+	> button {
+		height: 1rem;
+		width: auto;
+		padding: 1rem;
+		line-height: 0;
+	}
 }
 
 .horizontalBtns {
-  padding: 1rem;
+	padding: 1rem;
 
-  button {
-    width: 8rem;
-    margin: 0 0.3rem;
-  }
+	button {
+		width: 8rem;
+		margin: 0 0.3rem;
+	}
 }
 
 .verticalBtns {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  button {
-    width: 8rem;
-    margin: 0.3rem auto;
-  }
+	button {
+		width: 8rem;
+		margin: 0.3rem auto;
+	}
 }
 
 h4 {
-  display: inline-block;
+	display: inline-block;
 }
 
 .smallContainer {
-  border: #ccc dotted 2px;
-  width: auto;
-  padding: 2rem;
+	border: #ccc dotted 2px;
+	width: auto;
+	padding: 2rem;
 
-  > h3 {
-    padding-bottom: 2rem;
-  }
+	> h3 {
+		padding-bottom: 2rem;
+	}
 }
 
 .demoButtonsLabel {
-  text-align: center;
-  padding: 1rem;
+	text-align: center;
+	padding: 1rem;
 }
 
 .fullscreen {
-  height: 100vh;
+	height: 100vh;
 }
 
 .pagecolumns {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+	align-items: flex-start;
 }
 
 .barcolumn {
-  order: 0;
-  flex: 0 1 auto;
-  align-self: auto;
-  z-index: 1;
-  padding: 1rem 0 1rem 1rem;
-  height: auto;
-  width: auto;
+	order: 0;
+	flex: 0 1 auto;
+	align-self: auto;
+	z-index: 1;
+	padding: 1rem 0 1rem 1rem;
+	height: auto;
+	width: auto;
 
-  > * {
-    margin: 1rem;
-  }
+	> * {
+		margin: 1rem;
+	}
 
-  button {
-    background: #d8bfd8;
-    min-width: auto;
-    min-height: auto;
-    font-size: 1rem;
-  }
+	button {
+		background: #d8bfd8;
+		min-width: auto;
+		min-height: auto;
+		font-size: 1rem;
+	}
 
-  .verticalCentreColumn {
-    display: flex;
-  }
+	.verticalCentreColumn {
+		display: flex;
+	}
 }
 
 .assignmentOptions > button {
-  height: auto;
+	height: auto;
 }
 
 .messageContainer {
-  width: 15vw;
+	width: 15vw;
 }
 
 .tutorialGridContainer {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0;
-  grid-row-gap: 0;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-column-gap: 0;
+	grid-row-gap: 0;
 
-  :nth-child(1) {
-    grid-area: 1 / 1 / 2 / 4;
-  }
+	:nth-child(1) {
+		grid-area: 1 / 1 / 2 / 4;
+	}
 
-  :nth-child(2) {
-    grid-area: 1 / 3 / 2 / 6;
-  }
+	:nth-child(2) {
+		grid-area: 1 / 3 / 2 / 6;
+	}
 
-  :nth-child(3) {
-    grid-area: 2 / 1 / 4 / 3;
-  }
+	:nth-child(3) {
+		grid-area: 2 / 1 / 4 / 3;
+	}
 
-  :nth-child(4) {
-    grid-area: 2 / 3 / 4 / 6;
-  }
+	:nth-child(4) {
+		grid-area: 2 / 3 / 4 / 6;
+	}
 }
 
 .eventListenerInfo {
-  width: 50vw;
-  text-align: left;
-  overflow: hidden;
-  white-space: nowrap;
+	width: 50vw;
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
 
-  > p {
-    width: 100%;
-    text-overflow: ellipsis;
-  }
+	> p {
+		width: 100%;
+		text-overflow: ellipsis;
+	}
 }
 
 .tutorialGridBox {
-  button {
-    background: #d8bfd8;
-    min-width: auto;
-    min-height: auto;
-    font-size: 1rem;
-  }
-  padding: 1rem;
+	button {
+		background: #d8bfd8;
+		min-width: auto;
+		min-height: auto;
+		font-size: 1rem;
+	}
+	padding: 1rem;
 }
 
 .tutorialScreen {
-  margin: 2rem;
+	margin: 2rem;
 
-  .eventListenerInfo {
-    width: auto;
-    text-align: left;
-    overflow: hidden;
+	.eventListenerInfo {
+		width: auto;
+		text-align: left;
+		overflow: hidden;
 
-    > p {
-      width: 60rem;
-      height: 8rem;
-      text-overflow: ellipsis;
-      overflow-y: scroll;
-    }
-    max-height: 100%;
-    box-sizing: border-box;
-  }
+		> p {
+			width: 60rem;
+			height: 8rem;
+			text-overflow: ellipsis;
+			overflow-y: scroll;
+		}
+		max-height: 100%;
+		box-sizing: border-box;
+	}
 }
 
 .tableContainer {
-  height: 8rem;
-  width: 40rem;
-  text-align: center;
+	height: 8rem;
+	width: 40rem;
+	text-align: center;
 
-  td,
-  th {
-    width: 20rem;
-    white-space: nowrap;
-  }
+	td,
+	th {
+		width: 20rem;
+		white-space: nowrap;
+	}
 }
 
 .tableBody,
 .tableHead {
-  display: block;
-  text-align: center;
+	display: block;
+	text-align: center;
 }
 
 .tableBody {
-  height: 6.5rem;
-  overflow-y: scroll;
-  width: auto;
-  overflow-x: hidden;
+	height: 6.5rem;
+	overflow-y: scroll;
+	width: auto;
+	overflow-x: hidden;
 }
 
 .selectTutorialDropdown {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  display: block;
-  width: 10rem;
+	font-size: 1.2rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	display: block;
+	width: 10rem;
 }
 
 .removeAllInstructions,
 .removeByCategoryInstructions,
 .removeByElementInstructions,
 .removeByHashInstructions {
-  display: none;
+	display: none;
 }
 
 .aboutScreen,
 .howToUseScreen {
-  h1 {
-    text-align: center;
-    padding-bottom: 2.5rem;
-  }
+	h1 {
+		text-align: center;
+		padding-bottom: 2.5rem;
+	}
 
-  p {
-    margin: 1rem;
-    font-size: 1.2rem;
-  }
+	p {
+		margin: 1rem;
+		font-size: 1.2rem;
+	}
 
-  code {
-    display: block;
-    padding: 1.5rem;
-  }
+	code {
+		display: block;
+		padding: 1.5rem;
+	}
 
-  .functionDefinition {
-    padding: 1rem;
-  }
+	.functionDefinition {
+		padding: 1rem;
+	}
 }
 
 .aboutScreen {
-  width: 100vw;
-  height: 100vh;
+	width: 100vw;
+	height: 100vh;
+	font-size: 1.4rem;
 
-  .mainTextContainer {
-    box-sizing: border-box;
-    padding: 4rem;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-  }
+	.mainTextContainer {
+		box-sizing: border-box;
+		padding: 10rem;
+		width: 100%;
+		overflow: auto;
+		height: 80%;
+		position: absolute;
+	}
 }
 
 .howToUseScreen {
-  margin: 0;
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
+	margin: 0;
+	font-size: 1.4rem;
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100vh;
 
-  p {
-    font-size: 1rem;
-  }
+	p {
+		font-size: 1rem;
+	}
 
-  code {
-    display: inline-block;
-    padding: 0;
-    background-color: #ddd;
-    vertical-align: text-bottom;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
+	code {
+		display: inline-block;
+		padding: 0;
+		background-color: #ddd;
+		vertical-align: text-bottom;
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
+	}
 
-  .mainTextContainer {
-    box-sizing: border-box;
-    padding: 4rem;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+	.mainTextContainer {
+		box-sizing: border-box;
+		padding: 10rem;
+		width: 100%;
+		height: 80%;
+		overflow: auto;
 
-    .howToSection {
-      padding-bottom: 1rem;
-    }
-  }
+		.howToSection {
+			padding-bottom: 1rem;
+		}
+	}
 }
 
 .screen {
-  display: none;
+	display: none;
 }
 
 .active {
-  display: block;
+	display: block;
 }
