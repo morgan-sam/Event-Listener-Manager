@@ -18,12 +18,12 @@
   </div>
   <div class="aboutScreen screen active">
     <div class="mainTextContainer">
-      <h1>ELF - Event Listener Framework</h1>
-      <p>ELF (event listener framework) is a library to simplify the process of adding and removing event listeners.</p>
-      <p>ELF uses haskeys to identify event listeners so specific event listeners can be easily removed using a key. In vanilla JS the exact arguments used on the add call must match the remove call, which can lead to confusion if the specified
-        arguments have changed value since the event listener was created. ELF stores the add arguments in an array so they can be easily accessed when they are needed to remove an event listener</p>
-      <p>ELF allows for removing multiple event listeners at the same time, either via element, the entire document, or using categories (which work similarly to CSS classes).</p>
-      <p>ELF adds the following new functions:</p>
+      <h1>ELM - Event Listener Manager</h1>
+      <p>ELM (event listener manager) is a library to simplify the process of adding and removing event listeners.</p>
+      <p>ELM uses haskeys to identify event listeners so specific event listeners can be easily removed using a key. In vanilla JS the exact arguments used on the add call must match the remove call, which can lead to confusion if the specified
+        arguments have changed value since the event listener was created. ELM stores the add arguments in an array so they can be easily accessed when they are needed to remove an event listener</p>
+      <p>ELM allows for removing multiple event listeners at the same time, either via element, the entire document, or using categories (which work similarly to CSS classes).</p>
+      <p>ELM adds the following new functions:</p>
       <div class="functionDefinition">
         <code>createEventListener(elementID, eventType, elementFunc, eventCategory);</code>
         <cite>Similar to addeventlistener, except the event target must be provided by ID. Also allows for categories to be specified.</cite>
@@ -54,10 +54,10 @@
       <h1>How to use the demo and tutorial</h1>
       <div class="howToSection">
         <h3>Demo</h3>
-        <p>The demo section shows the basic functionality of ELF without showing the code. It has a button for creating event listeners, and buttons for the 4 methods of deleting event listeners.</p>
+        <p>The demo section shows the basic functionality of ELM without showing the code. It has a button for creating event listeners, and buttons for the 4 methods of deleting event listeners.</p>
         <p>The pop up prompts will ask for the revelant information needed to create/delete the event listeners (i.e. which button to assign, what message to print, and what categories to assign).</p>
         <p>Assigned messages will print on screen in the message box, and created event listeners will appear in the active event listeners box.</p>
-        <p>Try making event listeners with as many different parameters as you can so you can try out each different way of deleting event listeners in ELF.</p>
+        <p>Try making event listeners with as many different parameters as you can so you can try out each different way of deleting event listeners in ELM.</p>
         <p>Remember multiple categories can be specified at once; with a period ( <code>.</code> ) specifying an AND operator and a space ( <code>&nbsp</code> ) specifying an OR operator.</p>
       </div>
       <div class="howToSection">
@@ -72,7 +72,7 @@
       </div>
       <div class="howToSection">
         <h3>Example Use Case</h3>
-        <p>You happen to be currently looking at an example of where ELF has proved advantageous! In creating this guide for the extension I came across an issue. Event listeners created on the Demo screen also appeared on the Tutorial screen, which
+        <p>You happen to be currently looking at an example of where ELM has proved advantageous! In creating this guide for the extension I came across an issue. Event listeners created on the Demo screen also appeared on the Tutorial screen, which
           caused an interface attempting to simplify the explanation to become overly complicated. Removing a category on one screen would also affect any categories of the same name on the other. I wanted both the Demo and Tutorial screens to have
           Event Listeners and controls that were completely independent of each other.</p>
         <p>With the categories functionality I was able to achieve exactly that. Every EL created in the Demo screen has a hidden 'demo' category, and every EL created in the

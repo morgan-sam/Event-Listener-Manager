@@ -1,4 +1,4 @@
-import * as elf from './elf.js';
+import * as elm from './elm.js';
 import '../css/main.css';
 import * as demo from './demo.js';
 import * as tutorial from './tutorial.js';
@@ -36,7 +36,7 @@ export const updateEventListenerInfo = (screenType) => {
 };
 
 export const filterEventListeners = (screenType) => {
-	let eventListeners = elf.getEventListenerList();
+	let eventListeners = elm.getEventListenerList();
 	let matchList = [];
 	eventListeners.forEach(function(el) {
 		let elString = JSON.stringify(el);
