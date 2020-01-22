@@ -18,4 +18,4 @@ import {
 
 To try out the demo/tutorial of ELM, please visit the following link (best viewed on chrome):
 
-https://rawcdn.githack.com/morgan-sam/Event-Listener-Framework/0f1b6eae2e1f5c9635e20722b30023a4f1d9f1ab/dist/index.html
+https://rawcdn.githack.com/morgan-sam/Event-Listener-Manager/4f6303728e2c8bc53aecea44b30488470072b908/dist/index.html
